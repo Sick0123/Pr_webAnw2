@@ -12,21 +12,25 @@
 
 .nav-link {
   padding: 25px;
-  color: white;
+  color: red;
   font-size: 22px;
   background-color: black;
   border-left: solid 1px grey;
 }
 
 .nav-link:hover {
-  color: black;
+  color: red;
   font-weight: bold;
   font-size: 22px;
   background-color: #f58b1a;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: white;
+  color: red;
+}
+
+.navbar-brand {
+  padding-right: 400px;
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -37,9 +41,10 @@
   border-color: #f58b1a;
 }
 
+
 .navbar {
-  padding: 0;
-  min-height: 80px;
+  min-height: 20px;
+  max-height: 85px;
   background-color: black;
   border-bottom: solid 1px grey;
   Border-top: solid 6px #f58b1a;
@@ -48,6 +53,7 @@
 .nav-item {
   width: 200px;
   text-align: center;
+  color: red;
 }
 
 #shopping_cart{
@@ -55,8 +61,7 @@
   height: 40px;
   display: block;
   position: absolute;
-  margin-left: 15px;
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 body{ 
@@ -104,9 +109,10 @@ footer {
 }
 
 .footer_head{
-  margin-top: 25px;
+  margin-top: 18px;
   vertical-align: middle;
 }
+
 .footer_text{
   padding-top: 10px;
   padding-left: 25px; 
@@ -115,8 +121,7 @@ footer {
 
 #logo {
   height: 65px;
-  padding-left: 15px;
-  padding-right: 400px;
+  margin-left: 10px;
 }
 
 #kontakt {
