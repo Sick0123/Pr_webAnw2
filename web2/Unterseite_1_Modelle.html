@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Premium Motorsport | Modelle</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="jquery/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+  <script src="Bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+    <a class="navbar-brand" href="index.html"><img id="logo" src="img/logo.png" alt="logo.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="Unterseite_1_Modelle.html">Modelle</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Unterseite_2_Events.html">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Unterseite_3_About.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Unterseite_4_Impressum.html">Impressum</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="space"></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+          <div id="slideshow_cars" class="carousel slide" data-interval="false">
+
+            <!-- Balken -->
+            <ul class="carousel-indicators">
+              <li data-target="#slideshow_cars" data-slide-to="0" class="active"></li>
+              <li data-target="#slideshow_cars" data-slide-to="1"></li>
+              <li data-target="#slideshow_cars" data-slide-to="2"></li>
+            </ul>
+
+            <!-- Slideshow Inhalt -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/slideshow_corvette.jpg" alt="Chevrolet_Corvette">
+
+                <!-- Jedes mal wenn Slide-Vorgang abgeschlossen, wird folgender Inhalt in unten definiertes div mit der id "text_slideshow" geschrieben -->
+                <div class="carousel-caption">
+                  <h1>Chevrolet Corvette C7 Z06</h1>
+                  <p><b>Länge: </b>4500 mm</p>
+                  <p><b>Breite: </b>1900 mm</p>
+                  <p><b>Höhe: </b>1240 mm</p>
+                  <p><b>Motor: </b>6,2 Liter V8</p>
+                  <p><b>Leistung: </b>659 PS</p>
+                  <p><b>0-100: </b>3,5 Sekunden</p>
+                </div>
+                <div id="corvette" class="carousel-caption corvette">
+                  98700€
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="img/slideshow_skyline.jpg" alt="Nissan_Skyline">
+                <div class="carousel-caption">
+                  <h1>Nissan Skyline GT-R R34</h1>
+                  <p><b>Länge: </b>4475 mm</p>
+                  <p><b>Breite: </b>1680 mm</p>
+                  <p><b>Höhe: </b>1535 mm</p>
+                  <p><b>Motor: </b>2,6 Liter Reihen 6-Zylinder</p>
+                  <p><b>Leistung: </b>280 PS</p>
+                  <p><b>0-100: </b>4,9 Sekunden</p>
+                </div>
+                <div id="nissan" class="carousel-caption nissan">
+                  57900€
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="img/slideshow_911.jpg" alt="Porsche_911_R">
+                <div class="carousel-caption">
+                  <h1>Porsche 911 R</h1>
+                  <p><b>Länge: </b>4557 mm</p>
+                  <p><b>Breite: </b>1880 mm</p>
+                  <p><b>Höhe: </b>1297 mm</p>
+                  <p><b>Motor: </b>4,0 Liter 6-Zylinder-Boxer-Saugmotor</p>
+                  <p><b>Leistung: </b>500 PS</p>
+                  <p><b>0-100: </b>3,8 Sekunden</p>
+                </div>
+                <div id="porsche" class="carousel-caption porsche">
+                  260580€
+                </div>
+              </div>
+            </div>
+
+            <!-- Pfeile -->
+            <a class="carousel-control-prev" href="#slideshow_cars" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#slideshow_cars" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- In dieses div werden die Angaben ueber die Autos geschrieben -->
+        <div class="col-md-4">
+          <div id="text_slideshow"></div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+          <h2 id="table_header">Ausstattung</h2>
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th>Auswahl</th>
+                <th>Produkt</th>
+                <th>Preis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input id="check_lackschutz" type="checkbox" preis="850" onclick="tableAusstattung()"><br></td>
+                <td>Lackschutz</td>
+                <td id="price_table">850,00 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-2 endpreis_font">
+          Endpreis:
+        </div>
+        <div class="col-md-3">
+          <div id="endpreis"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer_index">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <img id="kontakt" src="img/footer_kontakt.png"></img>
+        </div>
+        <div class="col-md-3">
+          <a href="#"><img id="forum" src="img/footer_forum.png"></a>
+        </div>
+        <div class="col-md-3">
+          <a href="#"><img id="facebook" src="img/footer_facebook.png"></img></a>
+          <a href="#"><img id="twitter" src="img/footer_twitter.png"></img></a>
+          <a href="#"><img id="twitter" src="img/footer_instagram.png"></img></a>
+        </div>
+        <div class="col-md-3">
+          <div>
+            <img id="trusted" src="img/footer_trusted.png">
+            <img id="trusted_2" src="img/footer_trusted_2.png">
+          </div>
+        </div>
+      </div>
+  </footer>
+</body>
+
+</html>

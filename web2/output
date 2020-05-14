@@ -1,0 +1,40 @@
+graph {
+	node [shape=box]
+	"TOP (&)"
+	node [shape=box]
+	"B (&)"
+	node [shape=box]
+	"C (<=)"
+	node [shape=box]
+	NOT
+	node [shape=box]
+	"NOT "
+	node [shape=box]
+	"NOT  "
+	node [shape=box]
+	"A (&)"
+	node [shape=circle]
+	1
+	node [shape=circle]
+	2
+	node [shape=circle]
+	3
+	node [shape=circle]
+	4
+	node [shape=circle]
+	5
+	node [shape=circle]
+	6
+	NOT -- "TOP (&)"
+	"TOP (&)" -- "B (&)"
+	"TOP (&)" -- "C (<=)"
+	"B (&)" -- "NOT "
+	"B (&)" -- 1
+	"NOT " -- 2
+	"C (<=)" -- "NOT  "
+	"C (<=)" -- "A (&)"
+	"NOT  " -- 3
+	"A (&)" -- 4
+	"A (&)" -- 5
+	"A (&)" -- 6
+}
