@@ -406,6 +406,11 @@ main {
 	margin-top: 10em;
 }
 
-.bestellformular_warenkorb_content {
-	color: white;
+
+
+.bestellformular_warenkorb {
+	background-color: #a3a3a3;
+	border-radius: 15px;
+	border: 2px solid #f58b1a;
+	padding: 2em;
 }
