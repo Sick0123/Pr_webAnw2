@@ -396,5 +396,16 @@ main {
 .bestellformular_form {
 	color: white; 
 	margin-top: 10em;
+	bargin-bottom: 2em;
 	
+}
+.bestellformular_spacer {
+	width: 9.4em;
+}
+.bestellformular_top_spacer {
+	margin-top: 10em;
+}
+
+.bestellformular_warenkorb_content {
+	color: white;
 }
