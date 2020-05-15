@@ -525,3 +525,33 @@ main {
   color: white;
 }
 
+#Event_image {
+  margin-left: 50px;
+  max-height: 30%;
+  max-width: 30%;
+  margin-bottom: 232px;
+}
+
+#Event_h1{
+  margin-bottom: 30px;
+  color: white;
+}
+
+#Event_button{
+  float: right;
+  margin-top: 33px;
+}
+
+#Event_Form_Text{
+  color: white;
+}
+
+#Event_Form {
+  border: 1px solid white;
+  height: 100%;
+  margin-left: 38px;
+}
+
+#Events_Margin_Top{
+  margin-top: 100px;
+}
