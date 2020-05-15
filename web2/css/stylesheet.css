@@ -396,7 +396,7 @@ main {
 .bestellformular_form {
 	color: white; 
 	margin-top: 10em;
-	bargin-bottom: 2em;
+	margin-bottom: 2em;
 	
 }
 
@@ -456,7 +456,7 @@ main {
 
 .config_columns {
   float: left;
-  width: 33.3%;
+  width: 100%;
   
 }
 .config_price {
@@ -474,6 +474,7 @@ main {
 }
 .config_price .grey {
   font-size: 20px;
+  padding: 8px;
 }
 .config_button {
   background-color: #4CAF50;
