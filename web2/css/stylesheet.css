@@ -2,9 +2,6 @@
   max-width: 100%;
 }
 
-
-
-
 .container.custom-container {
   margin-right: 0;
   margin-left: 0;
@@ -12,25 +9,22 @@
 
 .nav-link {
   padding: 25px;
-  color: red;
+  color: white;
   font-size: 22px;
   background-color: black;
   border-left: solid 1px grey;
 }
 
 .nav-link:hover {
-  color: red;
+  padding: 25px;
+  color: black;
   font-weight: bold;
   font-size: 22px;
   background-color: #f58b1a;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: red;
-}
-
-.navbar-brand {
-  padding-right: 400px;
+  color: white;
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -41,30 +35,20 @@
   border-color: #f58b1a;
 }
 
-
 .navbar {
-  min-height: 20px;
-  max-height: 85px;
+  padding: 0;
+  min-height: 80px;
   background-color: black;
   border-bottom: solid 1px grey;
-  Border-top: solid 6px #f58b1a;
+  border-top: solid 5px red;
 }
 
 .nav-item {
   width: 200px;
   text-align: center;
-  color: red;
 }
 
-#shopping_cart{
-  width: 50px;
-  height: 40px;
-  display: block;
-  position: absolute;
-  margin-top: 2px;
-}
-
-body{ 
+body {
   font-family: "Arial", sans-serif;
   position: relative;
   text-align: center;
@@ -108,20 +92,10 @@ footer {
   border-top: solid 1px #f58b1a;
 }
 
-.footer_head{
-  margin-top: 18px;
-  vertical-align: middle;
-}
-
-.footer_text{
-  padding-top: 10px;
-  padding-left: 25px; 
-  padding-right: 25px;
-}
-
 #logo {
   height: 65px;
-  margin-left: 10px;
+  padding-left: 15px;
+  padding-right: 400px;
 }
 
 #kontakt {
@@ -366,6 +340,7 @@ main {
 
 .col-md-3 p {
   font-size: 20px;
+  text-align: left;
   margin-bottom: 10px;
 }
 
