@@ -13,9 +13,10 @@
   <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
 </head>
 
-<body>
-  <div class="background_img"></div>
-  <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+
+<!-- Navbar -->
+<body style="background-color: #282c34">
+  <nav class="navbar navbar-expand-md navbar-dark">
     <div class="navbar-brand"><a href="index.html"><img id="logo" src="img/logo.png" alt="logo.png"></a></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -37,18 +38,77 @@
         <li class="nav-item">
           <div class="container" id="shopping_cart">
             <img id="shopping_cart" src="./img/shopping_cart_white.png" alt="Warenkorb" data-html="true"
-              data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>'
-              data-content="<div > <p>Audi RS3 Sportpack<br><br> 
+              data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>' data-content="<div > <p>Audi RS3 Sportpack<br><br> 
                 Farbe: Rot<br> Motor: 2,5 Liter<br> Fahrwerk: Basis<br> Sportfelgen: Ja<br> Update: Ja <br><br>  
                 <B>Endpreis: 70 500€ <br><br></B>   
-                <a href='./Bestellformular.html' class='button'>Bestellen</a> </div>">
+                <a href='#' class='button'>Bestellen</a> </div>">
           </div>
         </li>
       </ul>
     </div>
   </nav>
 
+  <!-- Formular -->
+  <div class="container_Events" id="Events_Margin_Top">
+    <div class="row">
+      <div class="col-md-4" id="Event_image"><img class="img-fluid" src="img/events.jpg" alt="events.jpg"></img></div>
+      <div class="col-md-6" id="Event_Form">
+        <h1 id="Event_h1">Verlosung!</h1>
+        <form class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <select id="inputState" class="form-control">>
+                <option selected>SEMA Show 2021</option>
+                <option>Cars & Coffee 2021</option>
+                <option>Automobil-Salon Genf 2022</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label id="Event_Form_Text">Name</label>
+              <input type="text" class="form-control" id="validationCustom02" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label id="Event_Form_Text">Vorname</label>
+              <input type="text" class="form-control" id="validationCustom02" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label id="Event_Form_Text">E-Mail</label>
+              <input type="text" class="form-control" id="validationCustom02" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="validationDefault03" id="Event_Form_Text">Adresse</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label id="Event_Form_Text">PLZ</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+              <label id="Event_Form_Text">Ort</label>
+              <input type="text" class="form-control">
+              </select>
+            </div>
+            <div class="form-group col-md-4"></div>
+            <div class="form-group col-md-2">
+              <button type="submit" class="btn btn-success" id="Event_button">Absenden</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
 
+
+  <!-- Footer -->
   <footer>
     <div class="row">
       <div class="col-md-1">
@@ -66,7 +126,8 @@
         <p class="footer_text" style="font-size:18px">
           Mometan können wir Ihnen auf Grund der aktuellen Lage nur ein eingeschränktes Angebot
           an Autos anbieten.<br><br>
-          Wir bitten um Entschuldigung und hoffen, dass wir Ihnen bald möglichst wieder unser volles Angebot bieten können.
+          Wir bitten um Entschuldigung und hoffen, dass wir Ihnen bald möglichst wieder unser volles Angebot bieten
+          können.
         </p>
       </div>
       <div class="col-md-3">
@@ -83,6 +144,7 @@
       </div>
     </div>
   </footer>
+
   <script>
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();

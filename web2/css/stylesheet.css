@@ -394,6 +394,16 @@ main {
   margin-top: 312px;
 }
 
+.Kontakt_margin_top {
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.Kontakt_Schrift {
+  color: white;
+}
+
+
 .bestellformular_form {
 	color: white; 
 	margin-top: 10em;
@@ -505,3 +515,50 @@ main {
 }
 
 
+.Bestellbestaetigung_main {
+  margin-top: 150px;
+}
+
+.Bestellbetaetigung_Bestelluebersicht {
+  margin-bottom: 115px;
+}
+
+.Kontakt_margin_top {
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.Kontakt_Schrift {
+  color: white;
+}
+
+#Event_image {
+  margin-left: 50px;
+  max-height: 30%;
+  max-width: 30%;
+  margin-bottom: 232px;
+}
+
+#Event_h1{
+  margin-bottom: 30px;
+  color: white;
+}
+
+#Event_button{
+  float: right;
+  margin-top: 33px;
+}
+
+#Event_Form_Text{
+  color: white;
+}
+
+#Event_Form {
+  border: 1px solid white;
+  height: 100%;
+  margin-left: 38px;
+}
+
+#Events_Margin_Top{
+  margin-top: 100px;
+}
