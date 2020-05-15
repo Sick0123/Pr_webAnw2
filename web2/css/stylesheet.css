@@ -399,6 +399,7 @@ main {
 	bargin-bottom: 2em;
 	
 }
+<<<<<<< Updated upstream
 .bestellformular_spacer {
 	width: 9.4em;
 }
@@ -408,4 +409,73 @@ main {
 
 .bestellformular_warenkorb_content {
 	color: white;
+}
+=======
+
+.config_margin_carousel{
+  margin-top: 150px;
+}
+
+.config_margin_alert{
+  margin-top: 70px;
+}
+
+.config_margin_processbar{
+  margin-top: 25px;
+} 
+.progress {height: 25px !important;}
+
+.config_kat p{
+  margin-bottom: 25px; 
+}
+.config_placeholder{
+  margin-top: 50px;
+}
+
+.config_cars{
+  width: 150px;
+  text-align: center;
+  text-align-last: center;
+}
+
+.config_cars option{
+  text-align-last: center;
+  padding-right: 29px;
+}
+
+.config_margin_footer{
+  margin-bottom: 200px;
+}
+>>>>>>> Stashed changes
+
+
+.config_columns {
+  float: left;
+  width: 33.3%;
+  
+}
+.config_price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.config_price li {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+}
+.config_price .grey {
+  font-size: 20px;
+}
+.config_button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
 }
