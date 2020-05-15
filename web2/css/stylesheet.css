@@ -515,3 +515,13 @@ main {
 .Bestellbetaetigung_Bestelluebersicht {
   margin-bottom: 115px;
 }
+
+.Kontakt_margin_top {
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.Kontakt_Schrift {
+  color: white;
+}
+
