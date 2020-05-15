@@ -76,6 +76,7 @@ body{
   position: relative;
   text-align: center;
   color: white;
+  background-color: black;
 }
 
 body,
@@ -393,6 +394,7 @@ main {
   margin-top: 312px;
 }
 
+<<<<<<< Updated upstream
 .bestellformular_form {
 	color: white; 
 	margin-top: 10em;
@@ -484,3 +486,14 @@ main {
   text-decoration: none;
   font-size: 18px;
 }
+=======
+.Kontakt_margin_top {
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.Kontakt_Schrift {
+  color: white;
+}
+
+>>>>>>> Stashed changes
