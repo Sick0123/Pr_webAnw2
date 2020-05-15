@@ -394,6 +394,16 @@ main {
   margin-top: 312px;
 }
 
+.Kontakt_margin_top {
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.Kontakt_Schrift {
+  color: white;
+}
+
+
 .bestellformular_form {
 	color: white; 
 	margin-top: 10em;
