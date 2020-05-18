@@ -6,7 +6,10 @@
   width: 100%;
 }
 
-
+h1{
+  color:#f58b1a;
+  text-align: center;
+}
 .container.custom-container {
   margin-right: 0;
   margin-left: 0;
@@ -630,43 +633,106 @@ main {
 .index_checked {
   color: orange;
 }
-
-/* Three column layout */
 .index_side {
   float: left;
   width: 15%;
   margin-top: 10px;
 }
-
 .index_middle {
   float: left;
   width: 70%;
   margin-top: 10px;
 }
-
-/* Place text to the right */
 .index_right {
   text-align: right;
 }
-
-/* Clear floats after the columns */
 .index_row:after {
   content: "";
   display: table;
   clear: both;
 }
-
-/* The bar container */
 .index_bar-container {
   width: 100%;
   background-color: #f1f1f1;
   text-align: center;
   color: white;
 }
-
+.index_box{
+  background-color: white;
+}
 /* Individual bars */
 .index_bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}
 .index_bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
 .index_bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
 .index_bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
 .index_bar-1 {width: 0%; height: 18px; background-color: #f44336;}
+
+.index_row{
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.index_sc-gauge { width:200px; 
+  height:200px;
+  padding-top: 50px;
+}
+.index_sc-background {
+  position:relative; 
+  height:100px; 
+  margin-bottom:10px; 
+  background-color:#fff; 
+  border-radius:150px 150px 0 0;
+  overflow:hidden; 
+  text-align:center; 
+}
+.index_sc-mask { 
+  position:absolute; 
+  top:20px; right:20px; 
+  left:20px; 
+  height:80px; 
+  background-color:#ffffff; 
+  border-radius:150px 150px 0 0 
+}
+.index_sc-percentage { 
+  position:absolute;
+  top:100px; 
+  left:-200%; 
+  width:400%; 
+  height:400%; 
+  margin-left:100px;      
+}
+.index_deg_90{
+  background-color:lightgreen; 
+  transform:rotate(45deg); 
+  transform-origin:top center; 
+}
+.index_deg_128{
+  background-color:orangered; 
+  transform:rotate(128deg); 
+  transform-origin:top center; 
+}
+.index_deg_180{
+  background-color:red; 
+  transform:rotate(180deg); 
+  transform-origin:top center; 
+}
+
+.index_sc-min { 
+  float:left; 
+}
+.index_sc-max { 
+  float:right; 
+}
+.index_sc-value { 
+  position:absolute; 
+  top:40px; 
+  left:0; 
+  width:100%;  
+  font-size:48px; 
+  font-weight:700; 
+  color: black;
+}
+.index_span{
+  color: white;
+}
+
+
