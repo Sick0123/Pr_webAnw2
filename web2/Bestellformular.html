@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
 </head>
 
-<body style="background-color: black">
+<body style="background-color:#282c34">
   
   <nav class="navbar navbar-expand-md fixed-top navbar-dark">
     <div class="navbar-brand"><a href="index.html"><img id="logo" src="img/logo.png" alt="logo.png"></a></div>
@@ -48,6 +48,9 @@
     </div>
   </nav>
 	<div class="container bestellformular_top_spacer">
+		<div>
+			<h1>Bestellung</h1>
+		</div>
 		<div class="row">
 			<div class="col-md-2">
 			</div>
@@ -79,114 +82,58 @@
 			</div>
 			</div>
 	</div>
-	<div class="col-md-5">
-
-  	<form class="bestellformular_form">
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<div class="form-group row">
-				<div class="col-xs-2">
-					<input class="form-control" type="text" placeholder="First Name">
-				</div>
-				<div class="bestellformular_spacer">
-				
-				</div>
-				<div class="col-xs-2">
-					<input class="form-control" type="text" placeholder="Last Name">
-				</div>
+	<div class="col-md-5 bestellformular_padding_top">
+		<form class="needs-validation" novalidate>
+			<div class="form-row">
 			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<div class="form-group row">
-				
-				<input class="form-control" type="text" placeholder="Street Address">
-				
+			<div class="form-row">
+			  <div class="form-group col-md-4 ">
+				<label id="Event_Form_Text">Name</label>
+				<span  style="color:red">*</span>
+				<input type="text" class="form-control" id="validationCustom02" required>
+			  </div>
+			  <div class="form-group col-md-4">
+				<label id="Event_Form_Text">Vorname</label>
+				<span  style="color:red">*</span>
+				<input type="text" class="form-control" id="validationCustom02" required>
+			  </div>
 			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<div class="form-group row">
-				
-				<input class="form-control" type="text" placeholder="Street Address 2">
-				
+			<div class="form-row">
+			  <div class="form-group col-md-8">
+				<label id="Event_Form_Text">E-Mail</label>
+				<span  style="color:red">*</span>
+				<input type="text" class="form-control" id="validationCustom02" required>
+			  </div>
 			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<div class="form-group row">
-				<div class="col-xs-4">
-					<input class="form-control" type="text" placeholder="City">
-				</div>
-				<div class="bestellformular_spacer">
-				
-				</div>
-				<div class="col-xs-4">
-					<input class="form-control" type="text" placeholder="State/Province">
-				</div>
+			<div class="form-row">
+			  <div class="form-group col-md-8">
+				<label for="validationDefault03" id="Event_Form_Text">Adresse</label>
+				<input type="text" class="form-control">
+			  </div>
 			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<div class="form-group row">
-				<div class="col-xs-4">
-					<input class="form-control" type="text" placeholder="Postal/Zip Code">
+			<div class="form-row">
+				<div class="form-group col-md-8">
+				  <label for="validationDefault03" id="Event_Form_Text">Adresszusatz</label>
+				  <input type="text" class="form-control">
 				</div>
-				<div class="bestellformular_spacer">
-				
-				</div>
-				<div class="col-xs-4">
-					<input class="form-control" type="text" placeholder="Country">
-				</div>
+			  </div>
+			<div class="form-row">
+			  <div class="form-group col-md-3">
+				<label id="Event_Form_Text">PLZ</label>
+				<input type="text" class="form-control">
+			  </div>
+			  <div class="form-group col-md-3">
+				<label id="Event_Form_Text">Ort</label>
+				<input type="text" class="form-control">
+				</select>
+			  </div>
+			  <div class="form-group"></div>
+			  <div class="form-group bestellformular_padding_left">
+				<button type="submit" class="btn btn-success" id="Event_button">Absenden</button>
+			  </div>
 			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<label>Bestellung nur auf Rechnung.</label>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<button type="submit" href="./Bestellbestaetigung.html" class="btn btn-success">Submit</button>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-	</div>
-	</form>
+		  </form>
+  	
 	</div>
 	</div>
 	</div class="bestellformular_sizer">

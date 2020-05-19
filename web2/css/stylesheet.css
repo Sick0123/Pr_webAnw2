@@ -7,8 +7,9 @@
 }
 
 h1{
-  color:#f58b1a;
-  text-align: center;
+  color:#f58b1a!important;
+  text-align: center!important;
+  margin-bottom: 50px !important;
 }
 .container.custom-container {
   margin-right: 0;
@@ -428,6 +429,12 @@ main {
 	border-radius: 15px;
 	border: 2px solid #f58b1a;
 	padding: 2em;
+}
+.bestellformular_padding_top{
+  padding-top:150px;
+}
+.bestellformular_padding_left{
+  padding-left: 30px;
 }
 
 .config p,li {
