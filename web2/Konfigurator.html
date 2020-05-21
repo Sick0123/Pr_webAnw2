@@ -37,9 +37,9 @@
           <div class="container" id="shopping_cart">
             <img id="shopping_cart" src="./img/shopping_cart_white.png" alt="Warenkorb" data-html="true"
             data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>'
-            data-content="<div> <p>Audi RS3 Sportpack<br><br> 
-              Farbe: Rot<br> Motor: 2,5 TFSI<br> Fahrwerk: KW<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
-              <B>Endpreis: 70 500€ <br><br></B>   
+            data-content="<div> <p>Audi RS3 Sportback<br><br> 
+              Farbe: Tango Rot<br> Motor: 2.5 TFSI<br> Fahrwerk: KW<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
+              <B>Endpreis: 70,500€ <br><br></B>   
               <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellen</a> </div>">
           </div>
         </li>
@@ -93,7 +93,15 @@
       </div>
       <div class="col-md-2 ">
         <div>
-          <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+          <select  class="config_cars " id="Motor">
+            <option value="Standard">Farbe</option>
+            <option value="Rot">Metallic Schwarz</option>
+            <option value="Eibach">Titan Silber</option>
+            <option value="Eibach">Arctic Weiß</option>
+            <option value="Eibach">Mantis Grün</option>
+            <option value="Eibach">Turbo Blau</option>
+            <option value="H&R">Tango Rot</option>
+          </select>
         </div>
         <div class="progress config_margin_processbar">
             <div class="progress-bar bg-success " role="progressbar" style="width: 50%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
@@ -156,7 +164,7 @@
       <div class="col-md-3 ">
         <div class="config_columns">
           <ul class="config_price">
-            <li class="config_grey"><b>Audi RS3 Sportpack</b></li>
+            <li class="config_grey"><b>Audi RS3 Sportback</b></li>
             <li>Basispreis: 60,000€</li>
             <li>Motor: 2.5 TFSI <br> Preis: 5000€</li>
             <li>Fahrwerk: KW <br> Preis 2000€</li>
