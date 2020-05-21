@@ -14,9 +14,10 @@ h1{
 h2,h3{
   color:#f58b1a!important;
 }
-p{
+.text_color{
   color:white
 }
+
 .container.custom-container {
   margin-right: 0;
   margin-left: 0;
