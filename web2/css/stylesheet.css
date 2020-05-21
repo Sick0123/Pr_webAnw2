@@ -681,6 +681,7 @@ main {
 .index_sc-gauge { width:200px; 
   height:200px;
   padding-top: 50px;
+  margin: 0 auto;
 }
 .index_sc-background {
   position:relative; 
@@ -746,4 +747,9 @@ main {
   	border: 3px solid #f58b1a;
 	border-radius: 25px;
  
+}
+
+.index_gauge_text p{
+	text-align: center;
+	color: #f58b1a;
 }
