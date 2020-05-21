@@ -11,6 +11,13 @@ h1{
   text-align: center!important;
   margin-bottom: 50px !important;
 }
+h2,h3{
+  color:#f58b1a!important;
+}
+.text_color{
+  color:white
+}
+
 .container.custom-container {
   margin-right: 0;
   margin-left: 0;
