@@ -96,26 +96,6 @@ html {
   margin: 0;
 }
 
-.background_img {
-  background-image: url("../img/index_background.jpg");
-  height: 93.8%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.text {
-  width: 80%;
-  font-size: 60px;
-  text-shadow: -2.5px -2.5px 0.5px black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding-bottom: 195px;
-}
-
 footer {
   background-color: black;
   color: white;
@@ -143,60 +123,6 @@ footer {
   margin-left: 10px;
 }
 
-#kontakt {
-  height: 38px;
-  margin-top: 13px;
-  max-width: 100%;
-}
-
-#forum {
-  height: 45px;
-  margin-top: 10px;
-  max-width: 100%;
-  min-width: 220px;
-  max-height: 45px;
-  min-height: 30px;
-}
-
-#facebook {
-  height: 42px;
-  width: 50px;
-  margin-top: 10px;
-  margin-left: auto;
-}
-
-#twitter {
-  height: 40px;
-  width: 50px;
-  margin-top: 13px;
-}
-
-#trusted {
-  height: 49px;
-  width: 100px;
-  margin-top: 10px;
-}
-
-#trusted_2 {
-  height: 49px;
-  width: 60px;
-  margin-top: 10px;
-  margin-left: 20px;
-}
-
-main {
-  background-color: #282c34;
-}
-
-#text_slideshow {
-  width: 100%;
-  height: 50px;
-  color: white;
-  font-size: 18px;
-  text-align: left;
-  margin-bottom: 280px;
-}
-
 .carousel-inner img {
   width: 100%;
   height: 100%;
@@ -206,152 +132,12 @@ main {
   background-color: #f58b1a;
 }
 
-.carousel-control-next-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23F58B1A' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
-}
-
-.carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23F58B1A' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
-}
-
 .space {
   height: 180px;
 }
 
 .carousel-caption {
   display: none;
-}
-
-#table_header {
-  margin-top: 20px;
-}
-
-#price_table {
-  color: #2ff32f;
-}
-
-.endpreis_font {
-  text-align: left;
-  font-size: 50px;
-  text-decoration: underline;
-  padding-top: 55px;
-}
-
-#endpreis {
-  padding-top: 52px;
-  text-align: left;
-  font-size: 60px;
-  color: #2ff32f;
-  margin-bottom: 82px;
-}
-
-#events_banner {
-  height: 100%;
-  width: 100%;
-}
-
-#events_text {
-  text-align: left;
-  font-size: 20px;
-}
-
-#events_header {
-  text-align: left;
-  margin-top: 80px;
-}
-
-/* Formular Unterseite_2_Events */
-.formular {
-  margin: 10px auto;
-  max-width: 400px;
-  padding: 20px 12px 10px 20px;
-  font: 20px "Arial", sans-serif;
-  float: left;
-}
-
-.formular li {
-  padding: 0;
-  display: block;
-  list-style: none;
-  margin: 10px 0 0 0;
-}
-
-.formular label {
-  margin: 0 0 3px 0;
-  padding: 0;
-  display: block;
-  font-weight: bold;
-  margin-top: 30px;
-}
-
-.feld_geteilt {
-  width: 49%;
-  height: 45px;
-}
-
-.feld_lang {
-  width: 100%;
-  height: 40px;
-}
-
-.feld_auswahl {
-  width: 100%;
-  height: 45px;
-}
-
-.select_event {
-  width: 50%;
-  margin-right: 20px;
-  margin-top: 85px;
-  height: 45px;
-  float: right;
-  font: 20px "Arial", sans-serif;
-}
-
-#event_datum {
-  font: 25px "Arial", sans-serif;
-  padding: 160px 130px 0 0;
-}
-
-.feld_textarea {
-  height: 100px;
-}
-
-#formular_button {
-  background: #f58b1a;
-  padding: 8px 15px 8px 15px;
-  border: none;
-  color: white;
-}
-
-#formular_button:hover {
-  background: #f58b1a;
-  padding: 8px 15px 8px 15px;
-  border: none;
-  color: black;
-  box-shadow: 0 0 6px white;
-}
-
-#required {
-  color: red;
-}
-
-.formular_background {
-  width: 100%;
-  background-color: #343a40;
-  border-radius: 8px;
-  border: solid 1px #f58b1a;
-  float: left;
-  margin-top: 20px;
-  box-shadow: 0 0 20px white;
-  margin-bottom: 55px;
-}
-
-/* Formular Unterseite_2_Events Ende */
-#about_autohaus {
-  height: 100%;
-  width: 100%;
-  padding-bottom: 100px;
 }
 
 .col-md-4 h1 {
@@ -367,22 +153,6 @@ main {
   font-size: 20px;
   text-align: left;
 }
-
-.select_wochentag {
-  height: 45px;
-  width: 50%;
-  float: left;
-  margin-top: 30px;
-  font-size: 20px;
-}
-
-#wochentag_öffnungszeiten {
-  float: left;
-  padding-top: 30px;
-  margin-right: 280px;
-  font-size: 25px;
-}
-
 .col-md-3 h1 {
   text-align: left;
   margin-bottom: 50px;
@@ -396,11 +166,6 @@ main {
 .col-md-5 p {
   margin-bottom: 735px;
 }
-
-#impressum_2nd_col {
-  margin-top: 100px;
-}
-
 .col-md-1 p {
   margin-top: 312px;
 }
@@ -426,7 +191,7 @@ main {
 	width: 9.4em;
 }
 .bestellformular_top_spacer {
-	margin-top: 10em;
+	margin-top: 8em;
 }
 
 
@@ -450,6 +215,8 @@ main {
 
 #config_red{
   background-color: red;
+  margin-left: 15px;
+  margin-right: 45px;
 }
 .config_margin_carousel{
   margin-top: 50px;
@@ -485,9 +252,6 @@ main {
 .config_margin_footer{
   margin-bottom: 200px;
 }
-
-
-
 .config_columns {
   float: left;
   width: 100%;
@@ -510,22 +274,11 @@ main {
   font-size: 20px;
   padding: 8px;
 }
-.config_button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 18px;
-}
 
 .Kontakt_main {
   margin-top: 150px;
   margin-bottom: 200px;
 }
-
-
 
 .Kontakt_Schrift {
   color: white;
@@ -615,7 +368,6 @@ main {
 .Kontakt_Schrift {
   color: white;
 }
-
 
 .index_checked {
   color: orange;

@@ -15,7 +15,7 @@
 
 <body style="background-color:#282c34">
   
-  <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+  <nav class="navbar navbar-expand-md  navbar-dark">
     <div class="navbar-brand"><a href="index.html"><img id="logo" src="img/logo.png" alt="logo.png"></a></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -39,9 +39,9 @@
 			<img id="shopping_cart" src="./img/shopping_cart_white.png" alt="Warenkorb" data-html="true"
 			data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>'
 			data-content="<div> <p>Audi RS3 Sportpack<br><br> 
-			  Farbe: Rot<br> Motor: 2,5 TFSI<br> Fahrwerk: BBS<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
+			  Farbe: Rot<br> Motor: 2,5 TFSI<br> Fahrwerk: KW<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
 			  <B>Endpreis: 70 500€ <br><br></B>   
-			  <a href='./Bestellformular.html' class='button'>Bestellen</a> </div>">
+			  <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellen</a> </div>">
           </div>
         </li>
       </ul>
@@ -72,10 +72,10 @@
 					<h5><p class="font-weight-bold ">Audi RS3 Sportpack</p>
 					<ul>
 					<li class="font-weight-light ">Farbe: Rot</li>
-					<li class="font-weight-light ">Motor: 2,5 Liter</li>
-					<li class="font-weight-light ">Fahrwerk: Basis</li>
-					<li class="font-weight-light ">Sportfelgen: Ja</li>
-					<li class="font-weight-light ">Update: Ja</li>
+					<li class="font-weight-light ">Motor: 2,5 TFSI</li>
+					<li class="font-weight-light ">Fahrwerk: KW</li>
+					<li class="font-weight-light ">Sportfelgen: BSS</li>
+					<li class="font-weight-light ">Update: Updatestufe 1</li>
 					</ul>
 					<p class="font-weight-bold ">Endpreis: 70.500€ </p></h5>
 			</div>
@@ -129,7 +129,8 @@
 			  </div>
 			  <div class="form-group"></div>
 			  <div class="form-group bestellformular_padding_left">
-				<button type="submit" class="btn btn-success" id="Event_button">Absenden</button>
+				<!-- <button type="submit" class="btn btn-success" id="Event_button"href="Bestellbestaetigung.html" >Absenden</button> -->
+				<a class='btn btn-success'type="submit" href='Bestellbestaetigung.html' id="Event_button" role='button'>Absenden</a>
 			  </div>
 			</div>
 		  </form>
@@ -141,8 +142,8 @@
 	</div>
 </div>
 
-  <footer>
-    <div class="row">
+<footer>
+    <div class="row ">
       <div class="col-md-1">
       </div>
       <div class="col-md-3">
@@ -169,9 +170,11 @@
           72458 Albstadt<br>
           07571/445566<br><br>
           <a href='Kontakt.html'>Kontakt/Termin</a>
+          <br>
+          <a href='impressum.html'>impressum</a>
         </p>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-2">
       </div>
     </div>
   </footer>
