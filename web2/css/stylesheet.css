@@ -742,4 +742,8 @@ main {
   color: white;
 }
 
-
+.carousel-inner{
+  	border: 3px solid #f58b1a;
+	border-radius: 25px;
+ 
+}
