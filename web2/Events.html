@@ -15,6 +15,7 @@
 
 
 <!-- Navbar -->
+
 <body style="background-color: #282c34">
   <nav class="navbar navbar-expand-md  navbar-dark">
     <div class="navbar-brand"><a href="index.html"><img id="logo" src="img/logo.png" alt="logo.png"></a></div>
@@ -38,8 +39,7 @@
         <li class="nav-item">
           <div class="container" id="shopping_cart">
             <img id="shopping_cart" src="./img/shopping_cart_white.png" alt="Warenkorb" data-html="true"
-            data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>'
-            data-content="<div> <p>Audi RS3 Sportback<br><br> 
+              data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>' data-content="<div> <p>Audi RS3 Sportback<br><br> 
               Farbe: Tango Rot<br> Motor: 2.5 TFSI<br> Fahrwerk: KW<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
               <B>Endpreis: 73083,48€ <br><br></B>   
               <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellen</a> </div>">
@@ -56,60 +56,64 @@
       <div class="col-md-6" id="Event_Form">
         <h2 id="Event_h1">Mit etwas Glück zu unseren Events!</h2>
         <p id=Event_text>
-          Da die Karten zu unseren Events innerhalb von wenigen Minuten komplett ausverkauft sind, habe wir uns dazu entschlossen, 
-          die Karten von Anfang an zu verlosen. Fülle also jetzt das Formular aus und sei mit etwas Glück bei einem unserer nächsten 
+          Da die Karten zu unseren Events innerhalb von wenigen Minuten komplett ausverkauft sind, habe wir uns dazu
+          entschlossen,
+          die Karten von Anfang an zu verlosen. Fülle also jetzt das Formular aus und sei mit etwas Glück bei einem
+          unserer nächsten
           Events dabei.
         </p>
-        <form class="needs-validation" novalidate>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <select id="inputState" class="form-control">>
-                <option selected>SEMA Show 2021</option>
-                <option>Cars & Coffee 2021</option>
-                <option>Automobil-Salon Genf 2022</option>
-              </select>
-            </div>
+        <form method="POST" enctype="multipart/form-data" id="myform" class="needs-validation" novalidate method="post"
+          id="BookPackageForm"></form>>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <select id="inputState" class="form-control">>
+              <option selected >SEMA Show 2021</option>
+              <option >Cars & Coffee 2021</option>
+              <option >Automobil-Salon Genf 2022</option>
+            </select>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label id="Event_Form_Text">Name</label>
-              <span  style="color:red">*</span>
-              <input type="text" class="form-control" id="validationCustom02" required>
-            </div>
-            <div class="form-group col-md-4">
-              <label id="Event_Form_Text">Vorname</label>
-              <span  style="color:red">*</span>
-              <input type="text" class="form-control" id="validationCustom02" required>
-            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label id="Event_Form_Text">Name</label>
+            <span style="color:red">*</span>
+            <input type="text" class="form-control" id="name" required>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label id="Event_Form_Text">E-Mail</label>
-              <span  style="color:red">*</span>
-              <input type="text" class="form-control" id="validationCustom02" required>
-            </div>
+          <div class="form-group col-md-4">
+            <label id="Event_Form_Text">Vorname</label>
+            <span style="color:red">*</span>
+            <input type="text" class="form-control" id="vname" required>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-8">
-              <label for="validationDefault03" id="Event_Form_Text">Adresse</label>
-              <input type="text" class="form-control">
-            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label id="Event_Form_Text">E-Mail</label>
+            <span style="color:red">*</span>
+            <input type="text" class="form-control" id="email" required>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-2">
-              <label id="Event_Form_Text">PLZ</label>
-              <input type="text" class="form-control">
-            </div>
-            <div class="form-group col-md-4">
-              <label id="Event_Form_Text">Ort</label>
-              <input type="text" class="form-control">
-              </select>
-            </div>
-            <div class="form-group col-md-4"></div>
-            <div class="form-group col-md-2">
-              <a class="btn btn-success" type="submit" href="Formularbestaetigung.html" id="Event_button" role="button">Absenden</a>
-            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="validationDefault03" id="Event_Form_Text">Adresse</label>
+            <input type="text" id="adr" class="form-control">
           </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label id="Event_Form_Text">PLZ</label>
+            <input type="text" id="plz" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label id="Event_Form_Text">Ort</label>
+            <input type="text" id="Ort" class="form-control">
+            </select>
+          </div>
+          <div class="form-group col-md-4"></div>
+          <div class="form-group col-md-2">
+            <a class="btn btn-success" type="submit" href="Formularbestaetigung.html" id="Event_button"
+              role="button">Absenden</a>
+          </div>
+        </div>
         </form>
       </div>
       <div class="col-md-2"></div>
@@ -135,7 +139,8 @@
         <p class="footer_text" style="font-size:18px">
           Mometan können wir Ihnen auf Grund der aktuellen Lage nur ein eingeschränktes Angebot
           an Autos anbieten.<br><br>
-          Wir bitten um Entschuldigung und hoffen, dass wir Ihnen bald möglichst wieder unser volles Angebot bieten können.
+          Wir bitten um Entschuldigung und hoffen, dass wir Ihnen bald möglichst wieder unser volles Angebot bieten
+          können.
         </p>
       </div>
       <div class="col-md-3">
@@ -156,9 +161,43 @@
   </footer>
 
   <script>
+
+
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
     });
+
+    $("#Event_button").click(function () {
+
+      console.log("button addtax clicked");
+      var event_name = document.getElementById('inputState').value;
+      var name = document.getElementById('name').value;
+      var vname = document.getElementById('vname').value;
+      var email = document.getElementById('email').value;
+      var adr = document.getElementById('adr').value;
+      var plz = document.getElementById('plz').value;
+      var ort = document.getElementById('Ort').value;
+      console.log(event,name,vname,email,adr,plz,ort);
+      // var obj = { "event": event, "name": name, "vname": vname, "email": email, "adr": adr, "plz": plz, "ort": ort };
+      var obj = { "event_name": event_name, "name": name, "vname": vname, "email": email, "adr": adr, "plz": parseInt(plz), "ort": ort };
+
+      $.ajax({
+        url: "http://localhost:8000/api/events",
+        method: "post",
+        contentType: "application/json",
+        data: JSON.stringify(obj)
+      }).done(function (response) {
+        console.log(response);
+        $("#output").html(JSON.stringify(response));
+      }).fail(function (jqXHR, statusText, error) {
+        console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+        $("#output").html("Ein Fehler ist aufgetreten");
+      });
+
+      window.alert("Break");
+    });
+
+
   </script>
 </body>
 
