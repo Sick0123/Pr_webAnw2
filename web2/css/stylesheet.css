@@ -364,6 +364,12 @@ footer {
   float: left;
 }
 
+#Event_text{
+  color: white;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
 .Bestellbetaetigung_Bestelluebersicht {
   margin-bottom: 115px;
 }
