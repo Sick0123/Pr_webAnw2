@@ -81,7 +81,7 @@ serviceRouter.post("/events", function(request, response) {
 
     const eventsDao = new EventsDao(request.app.locals.dbConnection);
     try {
-        var result = eventsDao.create(request.body.event_name, request.body.adr, request.body.email, request.body.name, request.body.ort, request.body.plz, request.body.vname);
+        var result = eventsDao.create(request.body.f_event_id, request.body.adr, request.body.email, request.body.name, request.body.ort, request.body.plz, request.body.vname);
         
 
         helper.log("Service events: Record inserted");

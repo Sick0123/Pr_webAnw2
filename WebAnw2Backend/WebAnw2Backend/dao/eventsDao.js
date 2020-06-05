@@ -21,7 +21,7 @@ class eventsDao {
         return helper.objectKeysToLower(result);
     }
     loadDropDown(){
-        var sql = "SELECT events_name FROM Events";
+        var sql = "SELECT * FROM Events";
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 
@@ -53,10 +53,10 @@ class eventsDao {
         return false;
     }
 
-    create(event_name="",adr="",email="",name="",ort="",plz="",vname="") {
-        var sql = "INSERT INTO event_form (event_name,adr,email,name,ort,plz,vname) VALUES (?,?,?,?,?,?,?)";
+    create(f_event_id="",adr="",email="",name="",ort="",plz="",vname="") {
+        var sql = "INSERT INTO event_form (f_event_id,adr,email,name,ort,plz,vname) VALUES (?,?,?,?,?,?,?)";
         var statement = this._conn.prepare(sql);
-        var params = [event_name,adr,email,name,ort,plz,vname];
+        var params = [f_event_id,adr,email,name,ort,plz,vname];
         var result = statement.run(params);
 
         if (result.changes != 1) 

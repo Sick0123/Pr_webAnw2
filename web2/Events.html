@@ -107,7 +107,7 @@
           </div>
           <div class="form-group col-md-4"></div>
           <div class="form-group col-md-2">
-            <a class="btn btn-success" type="submit" href="Formularbestaetigung.html" id="Event_button"
+            <a class="btn btn-success" type="submit"  id="Event_button"
               role="button">Absenden</a>
           </div>
         </div>
@@ -174,8 +174,8 @@
             }).done(function (response) {
                 console.log(response);
                 $.each(response.daten, function (key, value) {
-            $("#inputState").append($('<option></option>').text(value.events_name));
-            console.log(value.events_name)
+            $("#inputState").append($('<option></option>').val(value.events_id).text(value.events_name));
+            console.log(document.getElementById("inputState").value);
         });
             }).fail(function (jqXHR, statusText, error) {
                 console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
@@ -183,7 +183,9 @@
             });
         });
 
-
+    function link(){
+      window.open('Formularbestaetigung.html','_self',false);
+    }
 
     $("#Event_button").click(function () {
 
@@ -195,26 +197,35 @@
       var adr = document.getElementById('adr').value;
       var plz = document.getElementById('plz').value;
       var ort = document.getElementById('Ort').value;
-      console.log(event,name,vname,email,adr,plz,ort);
+      console.log(event_name,name,vname,email,adr,plz,ort);
       // var obj = { "event": event, "name": name, "vname": vname, "email": email, "adr": adr, "plz": plz, "ort": ort };
-      var obj = { "event_name": event_name, "name": name, "vname": vname, "email": email, "adr": adr, "plz": parseInt(plz), "ort": ort };
+      var obj = { "f_event_id": event_name, "name": name, "vname": vname, "email": email, "adr": adr, "plz": parseInt(plz), "ort": ort };
 
-      $.ajax({
-        url: "http://localhost:8000/api/events",
-        method: "post",
-        contentType: "application/json",
-        data: JSON.stringify(obj)
-      }).done(function (response) {
-        console.log(response);
-        $("#output").html(JSON.stringify(response));
-      }).fail(function (jqXHR, statusText, error) {
-        console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
-        $("#output").html("Ein Fehler ist aufgetreten");
-      });
+      if(name.length>=3 &&vname.length>=3 &&email.length >=6){
+        console.log("Erfolgreich")
+        $.ajax({
+          url: "http://localhost:8000/api/events",
+          method: "post",
+          contentType: "application/json",
+          data: JSON.stringify(obj)
+        }).done(function (response) {
+          console.log(response);
+          $("#output").html(JSON.stringify(response));
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#output").html("Ein Fehler ist aufgetreten");
+        });
+        setTimeout(link, 500);
+        
+      }else{
+       alert("Eingabe Falsch. Name, Vorname oder Mail sind zu kurz oder nicht vorhanden.")
+      }
+      
 
-      window.alert("Break");
+
+      // window.alert("Break");
     });
-
+    
 
   </script>
 </body>
