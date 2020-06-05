@@ -66,10 +66,7 @@
           id="BookPackageForm"></form>>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">>
-              <option selected >SEMA Show 2021</option>
-              <option >Cars & Coffee 2021</option>
-              <option >Automobil-Salon Genf 2022</option>
+            <select id="inputState" class="form-control">
             </select>
           </div>
         </div>
@@ -166,6 +163,27 @@
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
     });
+
+    $("#inputState").ready(function() {
+            console.log("button geterror clicked");
+
+            $.ajax({
+                url: "http://localhost:8000/api/events/dropDown",
+                method: "get",
+                dataType: "json"
+            }).done(function (response) {
+                console.log(response);
+                $.each(response.daten, function (key, value) {
+            $("#inputState").append($('<option></option>').text(value.events_name));
+            console.log(value.events_name)
+        });
+            }).fail(function (jqXHR, statusText, error) {
+                console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                $("#inputState").html("Ein Fehler ist aufgetreten");
+            });
+        });
+
+
 
     $("#Event_button").click(function () {
 

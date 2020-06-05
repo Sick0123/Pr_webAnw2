@@ -31,6 +31,20 @@ serviceRouter.get("/events/alle", function(request, response) {
     }
 });
 
+serviceRouter.get("/events/dropDown", function(request, response) {
+    helper.log("Service events: Client requested all records");
+
+    const eventsDao = new EventsDao(request.app.locals.dbConnection);
+    try {
+        var result = eventsDao.loadDropDown();
+        helper.log("Service events: Records loaded, count=" + result.length);
+        response.status(200).json(helper.jsonMsgOK(result));
+    } catch (ex) {
+        helper.logError("Service events: Error loading all records. Exception occured: " + ex.message);
+        response.status(400).json(helper.jsonMsgError(ex.message));
+    }
+});
+
 serviceRouter.get("/events/existiert/:id", function(request, response) {
     helper.log("Service events: Client requested check, if record exists, id=" + request.params.id);
 

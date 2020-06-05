@@ -20,6 +20,16 @@ class eventsDao {
 
         return helper.objectKeysToLower(result);
     }
+    loadDropDown(){
+        var sql = "SELECT events_name FROM Events";
+        var statement = this._conn.prepare(sql);
+        var result = statement.all();
+
+        if (helper.isArrayEmpty(result)) 
+            return [];
+        
+        return helper.arrayObjectKeysToLower(result);
+    }
 
     loadAll() {
         var sql = "SELECT * FROM event_form";
