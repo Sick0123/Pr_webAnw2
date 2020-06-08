@@ -1,0 +1,48 @@
+CREATE TABLE "Auto" (
+	"id_auto"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"name"	TEXT NOT NULL,
+	"ps"	INTEGER NOT NULL,
+	"preis"	INTEGER NOT NULL
+);
+CREATE TABLE "Fahrwerk" (
+	"id_fahrwerk"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"hersteller"	TEXT NOT NULL,
+	"preis"	INTEGER NOT NULL,
+	"add"	INTEGER NOT NULL
+);
+CREATE TABLE "Farbe" (
+	"id_farbe"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"name"	TEXT NOT NULL,
+	"preis"	INTEGER NOT NULL
+);
+CREATE TABLE "Felgen" (
+	"id_felgen"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"hersteller"	TEXT NOT NULL,
+	"preis"	INTEGER NOT NULL,
+	"add"	INTEGER NOT NULL
+);
+CREATE TABLE "Motor" (
+	"id_motor"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"name"	TEXT NOT NULL,
+	"preis"	INTEGER NOT NULL,
+	"add"	INTEGER NOT NULL
+);
+CREATE TABLE "Update" (
+	"id_update"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"name"	TEXT NOT NULL,
+	"preis"	INTEGER NOT NULL,
+	"add"	INTEGER
+);
+CREATE TABLE "Config" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"f_id_auto"	INTEGER NOT NULL,
+	"f_id_farbe"	INTEGER NOT NULL,
+	"f_id_motor"	INTEGER NOT NULL,
+	"f_id_felgen"	INTEGER NOT NULL,
+	"f_id_update"	INTEGER NOT NULL,
+	FOREIGN KEY("f_id_motor") REFERENCES "Motor"("id_motor"),
+	FOREIGN KEY("f_id_auto") REFERENCES "Auto"("id_auto"),
+	FOREIGN KEY("f_id_farbe") REFERENCES "Farbe"("id_farbe"),
+	FOREIGN KEY("f_id_felgen") REFERENCES "Felgen"("id_felgen"),
+	FOREIGN KEY("f_id_update") REFERENCES "Update"("id_update")
+);
