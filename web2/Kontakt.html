@@ -60,16 +60,15 @@
       
             <div class="form-group">
               <label class="Kontakt_Schrift">Kategorie</label>
-              <select class="form-control">
-                <option>Frage</option>
-                <option>Termin</option>
+              <select id="dropDown" class="form-control">
+                
               </select>
             </div>
             <div class="form-group">
               <label class="Kontakt_Schrift">Ihre Mitteilung</label>
-              <textarea class="form-control"  rows="12"></textarea>
+              <textarea id="textarea" class="form-control"  rows="12"></textarea>
             </div>
-            <a class="btn btn-success" type="submit" href="Formularbestaetigung.html" id="Event_button_2" role="button">Absenden</a>
+            <a class="btn btn-success" type="submit"  id="Event_button_2" role="button">Absenden</a>
           </form>
         </div>
       </div>
@@ -117,6 +116,67 @@
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
     });
+
+    $("#dropDown").ready(function() {
+            console.log("button geterror clicked");
+
+            $.ajax({
+                url: "http://localhost:8000/api/kontakt/dropDown",
+                method: "get",
+                dataType: "json"
+            }).done(function (response) {
+                console.log(response);
+                $.each(response.daten, function (key, value) {
+            $("#dropDown").append($('<option></option>').val(value.id).text(value.beschreibung));
+            console.log(document.getElementById("dropDown").value);
+        });
+            }).fail(function (jqXHR, statusText, error) {
+                console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                $("#dropDown").html("Ein Fehler ist aufgetreten");
+            });
+        });
+    function link(){
+      window.open('Formularbestaetigung.html','_self',false);
+    }
+
+
+    $("#Event_button_2").click(function () {
+
+      console.log("button addtax clicked");
+      
+      var kat = document.getElementById('dropDown').value;
+      var text2 = document.getElementById('textarea').value;
+      console.log(kat,text2);
+      // var obj = { "event": event, "name": name, "vname": vname, "email": email, "adr": adr, "plz": plz, "ort": ort };
+      var obj = { "f_id_kategorie": kat, "text": text2};
+
+      if(text2.length>=20 &&text2.length <=2500){
+        console.log("Erfolgreich")
+        $.ajax({
+          url: "http://localhost:8000/api/kontakt",
+          method: "post",
+          contentType: "application/json",
+          data: JSON.stringify(obj)
+        }).done(function (response) {
+          console.log(response);
+          $("#output").html(JSON.stringify(response));
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#output").html("Ein Fehler ist aufgetreten");
+        });
+        setTimeout(link, 500);
+        
+      }else{
+      alert("Eingabe Falsch. zu lang oder zu kurz (min. 20 max. 2500)");
+      }
+
+
+
+      // window.alert("Break");
+      });
+
+     
+
   </script>
 </body>
 

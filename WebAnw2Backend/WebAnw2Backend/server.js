@@ -93,8 +93,11 @@ try {
 
     serviceRouter = require("./services/mehrwertsteuer.js");
     app.use(TOPLEVELPATH, serviceRouter);
-    
+
     serviceRouter = require("./services/events.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
+    serviceRouter = require("./services/kontakt.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
     serviceRouter = require("./services/produktbild.js");
