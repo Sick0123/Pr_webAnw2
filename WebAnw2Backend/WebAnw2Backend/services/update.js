@@ -21,7 +21,7 @@ serviceRouter.get("/update/gib/:id", function(request, response) {
 serviceRouter.get("/update/dropDown", function(request, response) {
     helper.log("Service kontakt: Client requested all records");
 
-    const updateDao = new updateDao(request.app.locals.dbConnection);
+    const updateDao = new UpdateDao(request.app.locals.dbConnection);
     try {
         var result = updateDao.loadDropDown();
         helper.log("Service kontakt: Records loaded, count=" + result.length);

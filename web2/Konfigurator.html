@@ -96,9 +96,9 @@
           <select  class="config_cars " id="Farbe">
           </select>
         </div>
-        <div class="progress config_margin_processbar">
+        <div id="progress_bar_add_motor" class="progress config_margin_processbar">
             <div class="progress-bar bg-success " role="progressbar" style="width: 50%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            
         </div>
         <div class="progress config_margin_processbar">
           <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
@@ -202,13 +202,13 @@
             console.log("button geterror clicked");
 
             $.ajax({
-                url: "http://localhost:8000/api/events/dropDown",
+                url: "http://localhost:8000/api/farbe/dropDown",
                 method: "get",
                 dataType: "json"
             }).done(function (response) {
                 console.log(response);
                 $.each(response.daten, function (key, value) {
-            $("#Farbe").append($('<option></option>').val(value.farb_id).text(value.farbe_name));
+            $("#Farbe").append($('<option></option>').val(value.id_farbe).text(value.name));
             console.log(document.getElementById("Farbe").value);
         });
             }).fail(function (jqXHR, statusText, error) {
@@ -220,31 +220,39 @@
             console.log("button geterror clicked");
 
             $.ajax({
-                url: "http://localhost:8000/api/events/dropDown",
+                url: "http://localhost:8000/api/motor/dropDown",
                 method: "get",
                 dataType: "json"
             }).done(function (response) {
                 console.log(response);
                 $.each(response.daten, function (key, value) {
-            $("#Motor").append($('<option></option>').val(value.Motor_id).text(value.Motor_name));
+            $("#Motor").append($('<option></option>').val(value.id_motor).text(value.name));
             console.log(document.getElementById("Motor").value);
+            
+            // $("#Motor").append($('<div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>'));
+            // console.log(document.getElementById("Motor").value);
+            
+
         });
             }).fail(function (jqXHR, statusText, error) {
                 console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
                 $("#Motor").html("Ein Fehler ist aufgetreten");
             });
         });
-	$(#Fahrwerk).ready(function() {
+  
+
+
+	$("#Fahrwerk").ready(function() {
             console.log("button geterror clicked");
 
             $.ajax({
-                url: "http://localhost:8000/api/events/dropDown",
+                url: "http://localhost:8000/api/fahrwerk/dropDown",
                 method: "get",
                 dataType: "json"
             }).done(function (response) {
                 console.log(response);
                 $.each(response.daten, function (key, value) {
-            $("#Fahrwerk").append($('<option></option>').val(value.Fahrwerk_id).text(value.Fahrwerk_name));
+            $("#Fahrwerk").append($('<option></option>').val(value.id_fahrwerk).text(value.hersteller));
             console.log(document.getElementById("Fahrwerk").value);
         });
             }).fail(function (jqXHR, statusText, error) {
@@ -252,23 +260,41 @@
                 $("#Fahrwerk").html("Ein Fehler ist aufgetreten");
             });
         });
-	$(#update).ready(function() {
+	$("#update").ready(function() {
             console.log("button geterror clicked");
 
             $.ajax({
-                url: "http://localhost:8000/api/events/dropDown",
+                url: "http://localhost:8000/api/update/dropDown",
                 method: "get",
                 dataType: "json"
             }).done(function (response) {
                 console.log(response);
                 $.each(response.daten, function (key, value) {
-            $("#update").append($('<option></option>').val(value.update_id).text(value.update_name));
+            $("#update").append($('<option></option>').val(value.id_update).text(value.name));
             console.log(document.getElementById("update").value);
         });
             }).fail(function (jqXHR, statusText, error) {
                 console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
                 $("#update").html("Ein Fehler ist aufgetreten");
             });
+        });
+    $("#Felgen").ready(function() {
+        console.log("button geterror clicked");
+
+        $.ajax({
+            url: "http://localhost:8000/api/sportfelgen/DropDown",
+            method: "get",
+            dataType: "json"
+        }).done(function (response) {
+            console.log(response);
+            $.each(response.daten, function (key, value) {
+        $("#Felgen").append($('<option></option>').val(value.id_felgen).text(value.hersteller));
+        console.log(document.getElementById("Felgen").value);
+    });
+        }).fail(function (jqXHR, statusText, error) {
+            console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+            $("#Felgen").html("Ein Fehler ist aufgetreten");
+        });
         });
 	
   </script>

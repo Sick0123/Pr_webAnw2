@@ -103,6 +103,21 @@ try {
     serviceRouter = require("./services/motor.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
+    serviceRouter = require("./services/sportfelgen.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
+    serviceRouter = require("./services/farbe.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
+    serviceRouter = require("./services/update.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
+    serviceRouter = require("./services/fahrwerk.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
+    // serviceRouter = require("./services/konfig.js");
+    // app.use(TOPLEVELPATH, serviceRouter);
+
     serviceRouter = require("./services/produktbild.js");
     app.use(TOPLEVELPATH, serviceRouter);
 

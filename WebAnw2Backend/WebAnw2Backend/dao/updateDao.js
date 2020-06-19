@@ -11,7 +11,7 @@ class updateDao {
     }
 
     loadById(id) {
-        var sql = "SELECT * FROM Update WHERE ID=?";
+        var sql = "SELECT * FROM 'Update' WHERE ID=?";
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 
@@ -21,7 +21,7 @@ class updateDao {
         return helper.objectKeysToLower(result);
     }
     loadDropDown(){
-        var sql = "SELECT * FROM Update";
+        var sql = "SELECT * FROM 'Update'";
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 

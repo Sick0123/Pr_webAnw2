@@ -1,3 +1,4 @@
+const helper = require("../helper.js");
 class farbeDao {
 
     constructor(dbConnection) {
