@@ -1,12 +1,12 @@
 const helper = require("../helper.js");
-const KontaktDao = require("../dao/motorDao.js");
+const MotorDao = require("../dao/motorDao.js");
 const express = require("express");
 var serviceRouter = express.Router();
 
 serviceRouter.get("/motor/gib/:id", function(request, response) {
     helper.log("Service kontakt: Client requested one record, id=" + request.params.id);
 
-    const motorDao = new motorDao(request.app.locals.dbConnection);
+    const motorDao = new MotorDao(request.app.locals.dbConnection);
     try {
         var result = kontaktDao.loadById(request.params.id);
         helper.log("Service kontakt: Record loaded");
