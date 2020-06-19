@@ -1,14 +1,14 @@
 const helper = require("../helper.js");
-const MotorDao = require("../dao/motorDao.js");
+const SportfelgenDao = require("../dao/sportfelgenDao.js");
 const express = require("express");
 var serviceRouter = express.Router();
 
-serviceRouter.get("/motor/gib/:id", function(request, response) {
+serviceRouter.get("/sportfelgen/gib/:id", function(request, response) {
     helper.log("Service kontakt: Client requested one record, id=" + request.params.id);
 
-    const motorDao = new MotorDao(request.app.locals.dbConnection);
+    const sportfelgenDao = new SportfelgenDao(request.app.locals.dbConnection);
     try {
-        var result = motorDao.loadById(request.params.id);
+        var result = sportfelgenDao.loadById(request.params.id);
         helper.log("Service kontakt: Record loaded");
         response.status(200).json(helper.jsonMsgOK(result));
     } catch (ex) {
@@ -18,12 +18,12 @@ serviceRouter.get("/motor/gib/:id", function(request, response) {
 });
 
 
-serviceRouter.get("/motor/dropDown", function(request, response) {
+serviceRouter.get("/sportfelgen/dropDown", function(request, response) {
     helper.log("Service kontakt: Client requested all records");
 
-    const motorDao = new MotorDao(request.app.locals.dbConnection);
+    const sportfelgenDao = new SportfelgenDao(request.app.locals.dbConnection);
     try {
-        var result = motorDao.loadDropDown();
+        var result = sportfelgenDao.loadDropDown();
         helper.log("Service kontakt: Records loaded, count=" + result.length);
         response.status(200).json(helper.jsonMsgOK(result));
     } catch (ex) {
