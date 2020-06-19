@@ -93,14 +93,7 @@
       </div>
       <div class="col-md-2 ">
         <div>
-          <select  class="config_cars " id="Motor">
-            <option value="Standard">Farbe</option>
-            <option value="Rot">Metallic Schwarz</option>
-            <option value="Eibach">Titan Silber</option>
-            <option value="Eibach">Arctic Weiß</option>
-            <option value="Eibach">Mantis Grün</option>
-            <option value="Eibach">Turbo Blau</option>
-            <option value="H&R">Tango Rot</option>
+          <select  class="config_cars " id="Farbe">
           </select>
         </div>
         <div class="progress config_margin_processbar">
@@ -126,37 +119,19 @@
           </div>
           <div class="config_margin_processbar">
             <select  class="config_cars " id="Motor">
-              <option value="Standard">Standard</option>
-              <option value="2,5 TFSI">2.5 TFSI</option>
-              <option value="2,9 TFSI">2.9 TFSI</option>
-              <option value="3,0 TFSI">3.0 TFSI</option>
             </select>
           </div>
           <div class="config_margin_processbar">
             <select class="config_cars" id="Fahrwerk">
-              <option value="Standard">Standard</option>
-              <option value="KW">KW</option>
-              <option value="Eibach">Eibach</option>
-              <option value="H&R">H&R</option>
               
             </select>
           </div>
           <div class="config_margin_processbar">
             <select class="config_cars" id="Felgen">
-              <option value="Standard">Standard</option>
-              <option value="BBS ">BBS</option>
-              <option value="ATS ">ATS</option>
-              <option value="Borbet">Borbet</option>
-              <option value="OZ Racing">OZ Racing</option>
             </select>
           </div>
           <div class="config_margin_processbar">
-            <select class="config_cars " id="cars">
-              <option value="Standard">Standard</option>
-              <option value="Update1">Updatestufe: 1</option>
-              <option value="Update2">Updatestufe: 2</option>
-              <option value="Update3">Updatestufe: 3</option>
-              <option value="Update4">Updatestufe: 4</option>
+            <select class="config_cars " id="update">
             </select>
           </div>
       </div>
@@ -222,6 +197,80 @@
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
     });
+
+    $("#Farbe").ready(function() {
+            console.log("button geterror clicked");
+
+            $.ajax({
+                url: "http://localhost:8000/api/events/dropDown",
+                method: "get",
+                dataType: "json"
+            }).done(function (response) {
+                console.log(response);
+                $.each(response.daten, function (key, value) {
+            $("#Farbe").append($('<option></option>').val(value.farb_id).text(value.farbe_name));
+            console.log(document.getElementById("Farbe").value);
+        });
+            }).fail(function (jqXHR, statusText, error) {
+                console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                $("#Farbe").html("Ein Fehler ist aufgetreten");
+            });
+        });
+	$("#Motor").ready(function() {
+            console.log("button geterror clicked");
+
+            $.ajax({
+                url: "http://localhost:8000/api/events/dropDown",
+                method: "get",
+                dataType: "json"
+            }).done(function (response) {
+                console.log(response);
+                $.each(response.daten, function (key, value) {
+            $("#Motor").append($('<option></option>').val(value.Motor_id).text(value.Motor_name));
+            console.log(document.getElementById("Motor").value);
+        });
+            }).fail(function (jqXHR, statusText, error) {
+                console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                $("#Motor").html("Ein Fehler ist aufgetreten");
+            });
+        });
+	$(#Fahrwerk).ready(function() {
+            console.log("button geterror clicked");
+
+            $.ajax({
+                url: "http://localhost:8000/api/events/dropDown",
+                method: "get",
+                dataType: "json"
+            }).done(function (response) {
+                console.log(response);
+                $.each(response.daten, function (key, value) {
+            $("#Fahrwerk").append($('<option></option>').val(value.Fahrwerk_id).text(value.Fahrwerk_name));
+            console.log(document.getElementById("Fahrwerk").value);
+        });
+            }).fail(function (jqXHR, statusText, error) {
+                console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                $("#Fahrwerk").html("Ein Fehler ist aufgetreten");
+            });
+        });
+	$(#update).ready(function() {
+            console.log("button geterror clicked");
+
+            $.ajax({
+                url: "http://localhost:8000/api/events/dropDown",
+                method: "get",
+                dataType: "json"
+            }).done(function (response) {
+                console.log(response);
+                $.each(response.daten, function (key, value) {
+            $("#update").append($('<option></option>').val(value.update_id).text(value.update_name));
+            console.log(document.getElementById("update").value);
+        });
+            }).fail(function (jqXHR, statusText, error) {
+                console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+                $("#update").html("Ein Fehler ist aufgetreten");
+            });
+        });
+	
   </script>
 </body>
 
