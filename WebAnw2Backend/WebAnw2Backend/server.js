@@ -100,6 +100,9 @@ try {
     serviceRouter = require("./services/kontakt.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
+    serviceRouter = require("./services/motor.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
     serviceRouter = require("./services/produktbild.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
