@@ -162,7 +162,7 @@
 
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
-    });
+    
 
     $("#inputState").ready(function() {
             console.log("button geterror clicked");
@@ -201,7 +201,7 @@
       // var obj = { "event": event, "name": name, "vname": vname, "email": email, "adr": adr, "plz": plz, "ort": ort };
       var obj = { "f_event_id": event_name, "name": name, "vname": vname, "email": email, "adr": adr, "plz": parseInt(plz), "ort": ort };
 
-      if(name.length>=3 &&vname.length>=3 &&email.length >=6){
+      if(name.length>=3 &&vname.length>=3 &&email.length >=6 && email.includes("@",2) && email.includes(".") ){
         console.log("Erfolgreich")
         $.ajax({
           url: "http://localhost:8000/api/events",
@@ -225,7 +225,7 @@
 
       // window.alert("Break");
     });
-    
+  });
 
   </script>
 </body>
