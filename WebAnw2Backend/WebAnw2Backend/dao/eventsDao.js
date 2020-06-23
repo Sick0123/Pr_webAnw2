@@ -1,9 +1,15 @@
 const helper = require("../helper.js");
 
 class eventsDao {
+    //const eventsDao_2 = {
 
     constructor(dbConnection) {
         this._conn = dbConnection;
+       
+    }
+
+    add(x,y){
+        return x+y;
     }
 
     getConnection() {
@@ -48,6 +54,11 @@ class eventsDao {
     toString() {
         helper.log("eventsDao [_conn=" + this._conn + "]");
     }
+//}
+
+
+    
 }
+
 
 module.exports = eventsDao;

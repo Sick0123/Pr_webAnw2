@@ -6,7 +6,7 @@ var serviceRouter = express.Router();
 serviceRouter.get("/events/gib/:id", function(request, response) {
     helper.log("Service events: Client requested one record, id=" + request.params.id);
 
-    const eventsDao = new eventsDao(request.app.locals.dbConnection);
+    const eventsDao = new EventsDao(request.app.locals.dbConnection);
     try {
         var result = eventsDao.loadById(request.params.id);
         helper.log("Service events: Record loaded");
