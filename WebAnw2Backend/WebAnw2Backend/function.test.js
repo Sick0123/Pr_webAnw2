@@ -8,30 +8,27 @@ const eventsDao=require('./dao/eventsDao');
 
 var dao = new eventsDao(dbConnection); 
 
-
-test('test', ()=>{
+test('loadById', ()=>{
+    function loadTest(){
+        dao.loadById(14);
+    }
     
-    expect(dao.loadDropDown).not.toBeNull();
-});
-
-test('test', ()=>{
-    
-    expect(dao.loadById(14)).not.toBeNull();
-});
-
-test('test', ()=>{
-    
-    expect(dao.getConnection()).not.toBeNull();
+    expect(loadTest).not.toThrowError("No Record found by id=");
 });
 
 
-// test('test', ()=>{
-//     var dao = new eventsDao("./db/db.sqlite");
-//     expect(dao.create("2","adr","email","name","ort","50825","vname")).not.toBeNull();
-// });
+test('loadDropDown', ()=>{ 
+    
+    expect(dao.loadDropDown()).toHaveLength(4);
+});
 
-// const id = 1;
-// test('test2', ()=>{
-   
-//     expect(dao.loadById(2)).not.toBeNull();
-// });
+
+
+test('test', ()=>{
+    function createTEST(){
+        dao.create("2","adr","email","name","ort","50825","vname");
+    }
+
+    expect(createTEST).not.toThrowError("Could not insert new Record. Data:");
+});
+
