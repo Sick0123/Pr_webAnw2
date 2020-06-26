@@ -10,7 +10,7 @@ class sportfelgenDao {
     }
 
     loadById(id) {
-        var sql = "SELECT * FROM Felgen WHERE ID=?";
+        var sql = "SELECT * FROM Felgen WHERE id_felgen=?";
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 

@@ -11,12 +11,12 @@ class motorDao {
     }
 
     loadById(id) {
-        var sql = "SELECT * FROM Motor WHERE ID=?";
+        var sql = "SELECT * FROM Motor WHERE id_motor=?";
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 
         if (helper.isUndefined(result)) 
-            throw new Error("No Record found by id=" + id);
+            throw new Error("No Record found by id_motor=" + id);
 
         return helper.objectKeysToLower(result);
     }

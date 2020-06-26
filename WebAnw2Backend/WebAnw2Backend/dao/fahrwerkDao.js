@@ -11,7 +11,7 @@ class fahrwerkDao {
     }
 
     loadById(id) {
-        var sql = "SELECT * FROM Fahrwerk WHERE ID=?";
+        var sql = "SELECT * FROM Fahrwerk WHERE id_fahrwerk=?";
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 

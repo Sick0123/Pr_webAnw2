@@ -11,7 +11,7 @@ class updateDao {
     }
 
     loadById(id) {
-        var sql = "SELECT * FROM 'Update' WHERE ID=?";
+        var sql = "SELECT * FROM 'Update' WHERE id_update=?";
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 

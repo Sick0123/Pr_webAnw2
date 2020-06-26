@@ -115,6 +115,9 @@ try {
     serviceRouter = require("./services/fahrwerk.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
+    serviceRouter = require("./services/auto.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
     // serviceRouter = require("./services/konfig.js");
     // app.use(TOPLEVELPATH, serviceRouter);
 

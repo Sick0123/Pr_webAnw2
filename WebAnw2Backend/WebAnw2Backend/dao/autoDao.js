@@ -1,5 +1,5 @@
 const helper = require("../helper.js");
-class farbeDao {
+class autoDao {
 
     constructor(dbConnection) {
         this._conn = dbConnection;
@@ -10,7 +10,7 @@ class farbeDao {
     }
 
     loadById(id) {
-        var sql = "SELECT * FROM Farbe WHERE id_farbe=?";
+        var sql = "SELECT name, preis FROM Auto WHERE id_auto=?";
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 
@@ -19,22 +19,10 @@ class farbeDao {
 
         return helper.objectKeysToLower(result);
     }
-    loadDropDown(){
-        var sql = "SELECT * FROM Farbe";
-        var statement = this._conn.prepare(sql);
-        var result = statement.all();
-
-        if (helper.isArrayEmpty(result)) 
-            return [];
-        
-        return helper.arrayObjectKeysToLower(result);
-    }
-
-    
 
     toString() {
-        helper.log("farbeDao [_conn=" + this._conn + "]");
+        helper.log("autoDao [_conn=" + this._conn + "]");
     }
 }
 
-module.exports = farbeDao;
+module.exports = autoDao;
