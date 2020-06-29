@@ -1,0 +1,17 @@
+digraph "Graph" {
+	node [shape=circle]
+	"S1 OK"
+	node [shape=circle]
+	"S2 Warn"
+	node [shape=circle]
+	"S3 Fehler"
+	node [shape=circle]
+	"S4 Reperatur"
+	"S1 OK" -> "S2 Warn"
+	"S1 OK" -> "S3 Fehler"
+	"S2 Warn" -> "S1 OK"
+	"S2 Warn" -> "S3 Fehler"
+	"S2 Warn" -> "S4 Reperatur"
+	"S3 Fehler" -> "S4 Reperatur"
+	"S4 Reperatur" -> "S1 OK"
+}
