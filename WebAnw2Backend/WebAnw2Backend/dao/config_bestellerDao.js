@@ -11,6 +11,17 @@ class config_bestellerDao {
     getConnection() {
         return this._conn;
     }
+    subSelc() {
+        
+        var sql = "SELECT * FROM config_besteller where ID = (select max(id) from config_besteller)";
+        var statement = this._conn.prepare(sql);
+        var result = statement.get();
+
+        if (helper.isUndefined(result)) 
+            throw new Error("No Record found by id=" + id);
+
+        return helper.objectKeysToLower(result);
+    }
 
     loadById(id) {
         var sql = "SELECT * FROM config_besteller WHERE ID=?";

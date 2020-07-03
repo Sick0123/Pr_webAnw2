@@ -18,6 +18,19 @@ serviceRouter.get("/config_besteller/gib/:id", function(request, response) {
     }
 });
 
+serviceRouter.get("/config_besteller/subSelc/", function(request, response) {
+    helper.log("Service config_besteller: Client requested one record, id=" + request.params.id);
+
+    const config_bestellerDao = new Config_bestellerDao(request.app.locals.dbConnection);
+    try {
+        var result = config_bestellerDao.subSelc();
+        helper.log("Service config_besteller: Record loaded");
+        response.status(200).json(helper.jsonMsgOK(result));
+    } catch (ex) {
+        helper.logError("Service config_besteller: Error loading record by id. Exception occured: " + ex.message);
+        response.status(400).json(helper.jsonMsgError(ex.message));
+    }
+});
 
 
 serviceRouter.post("/config_besteller", function(request, response) {
