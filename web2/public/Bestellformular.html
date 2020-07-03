@@ -176,7 +176,7 @@
 	</div>
   </footer>
   <script>
-	var ret ={"id":11,"f_id_auto":0,"f_id_farbe":3};
+	var ret ={};
     $(document).ready(function () {
 	  $('[data-toggle="popover"]').popover();
 	  
@@ -185,7 +185,7 @@
         method: "get",
         dataType: "json"
       }).done(function (response) {
-		ret= {"id":88,"f_id_auto":0,"f_id_farbe":3};
+		ret=response.daten;
 		console.log("debug 189  ++++"+ret.id);
       }).fail(function (jqXHR, statusText, error) {
         console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
@@ -195,14 +195,15 @@
 	  });
 	  
 	  
-      
+	var ajaxFn = function() { 
+	console.log("debug ret   "+ret.id);
       $.ajax({
-          url: "http://localhost:8000/api/motor/gib/" + ret.f_id_motor,
+          url: "http://localhost:8000/api/motor/gib/" +ret.f_id_motor,
           method: "get",
           dataType: "json"
         }).done(function (response) {
 			
-          totalcost["motor"] = response.daten.preis;
+        //   totalcost["motor"] = response.daten.preis;
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
@@ -218,18 +219,181 @@
             }
            
           };
-          sumTotal();
+        //   sumTotal();
         }).fail(function (jqXHR, statusText, error) {
-			console.log("debug 195++++"+ ret.id);
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#Farbe").html("Ein Fehler ist aufgetreten");
+		});
+		
+		$.ajax({
+          url: "http://localhost:8000/api/auto/gib/" + ret.f_id_auto,
+          method: "get",
+          dataType: "json"
+        }).done(function (response) {
+        //   totalcost["basispreis"] = response.daten.preis;
+          for (var obj in response.daten) {
+            if (obj != "preis") {
+              var textnode = document.createTextNode(response.daten.name);
+              var item = document.getElementById("myList1").childNodes[0];
+               item.replaceChild(textnode, item.childNodes[0]);
+            } else {
+              var price = response.daten[obj].toString();
+              price = "Basispreis: " + price + "€";
+              
+              var textnode = document.createTextNode(price);
+              var item = document.getElementById("myList1").childNodes[1];
+               item.replaceChild(textnode, item.childNodes[0]);
+            }
+           
+          };
+        //   sumTotal();
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#Farbe").html("Ein Fehler ist aufgetreten");
+        });
+      
+		$.ajax({
+          url: "http://localhost:8000/api/fahrwerk/gib/" + ret.f_id_fahrwerk,
+          method: "get",
+          dataType: "json"
+        }).done(function (response) {
+        //   tottotalcost["fahrwerk"] = response.daten.preis;
+          for (var obj in response.daten) {
+            if (obj != "preis") {
+              var textnode = document.createTextNode(response.daten.hersteller);
+              var item = document.getElementById("myList1").childNodes[0];
+              //  item.replaceChild(textnode, item.childNodes[0]);
+            } else {
+              var price = response.daten[obj].toString();
+              price = response.daten.hersteller+ "\n Preis: " + price + "€";
+              
+              var textnode = document.createTextNode(price);
+              var item = document.getElementById("myList1").childNodes[4];
+               item.replaceChild(textnode, item.childNodes[0]);
+            }
+           
+          };
+        //   sumTotal();
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#Farbe").html("Ein Fehler ist aufgetreten");
+		});
+		
+		$.ajax({
+          url: "http://localhost:8000/api/farbe/gib/" + ret.f_id_farbe,
+          method: "get",
+          dataType: "json"
+        }).done(function (response) {
+        //   totalcost["farbe"] = response.daten.preis;
+          for (var obj in response.daten) {
+            if (obj != "preis") {
+              var textnode = document.createTextNode(response.daten.name);
+              var item = document.getElementById("myList1").childNodes[3];
+              //  item.replaceChild(textnode, item.childNodes[0]);
+            } else {
+              var price = response.daten[obj].toString();
+              price = response.daten.name+ "\n Preis: " + price + "€";
+              
+              var textnode = document.createTextNode(price);
+              var item = document.getElementById("myList1").childNodes[2];
+               item.replaceChild(textnode, item.childNodes[0]);
+              
+            }
+          };
+        //   sumTotal();
+
+        }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
           $("#Farbe").html("Ein Fehler ist aufgetreten");
         });
 
+		$.ajax({
+          url: "http://localhost:8000/api/sportfelgen/gib/" + ret.f_id_felgen,
+          method: "get",
+          dataType: "json"
+        }).done(function (response) {
+          
+          for (var obj in response.daten) {
+            if (obj != "preis") {
+              var textnode = document.createTextNode(response.daten.hersteller);
+              var item = document.getElementById("myList1").childNodes[0];
+              //  item.replaceChild(textnode, item.childNodes[0]);
+            } else {
+            //   totalcost["felgen"] = response.daten[obj];
+              var price = response.daten[obj].toString();
+              price = response.daten.hersteller+ "\n Preis: " + price + "€";
+              
+              var textnode = document.createTextNode(price);
+              var item = document.getElementById("myList1").childNodes[5];
+               item.replaceChild(textnode, item.childNodes[0]);
 
+             
+            }
+           
+          };
+        // sumTotal();
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#Felgen").html("Ein Fehler ist aufgetreten");
+        });
 
+		$.ajax({
+          url: "http://localhost:8000/api/update/gib/" + ret.f_id_update,
+          method: "get",
+          dataType: "json"
+        }).done(function (response) {
+        //   totalcost["updage"] = response.daten.preis;
+          for (var obj in response.daten) {
+            if (obj != "preis") {
+              var textnode = document.createTextNode(response.daten.name);
+              var item = document.getElementById("myList1").childNodes[0];
+              //  item.replaceChild(textnode, item.childNodes[0]);
+            } else {
+              var price = response.daten[obj].toString();
+              price = response.daten.name+ "\n Preis: " + price + "€";
+              
+              var textnode = document.createTextNode(price);
+              var item = document.getElementById("myList1").childNodes[6];
+               item.replaceChild(textnode, item.childNodes[0]);
+            }
+           
+          };
+        //   sumTotal();
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#update").html("Ein Fehler ist aufgetreten");
+		});
+		
 
+		$.ajax({
+          url: "http://localhost:8000/api/config/getPreis/" + ret.id,
+          method: "get",
+          dataType: "json"
+        }).done(function (response) {
+        //   totalcost["updage"] = response.daten.preis;
+          for (var obj in response.daten) {
+            if (obj != "preis") {
+              var textnode = document.createTextNode(response.daten.name);
+              var item = document.getElementById("myList1").childNodes[0];
+              //  item.replaceChild(textnode, item.childNodes[0]);
+            } else {
+              var price = response.daten[obj].toString();
+              price =  "Endpreis: " + price + "€";
+              
+              var textnode = document.createTextNode(price);
+              var item = document.getElementById("myList1").childNodes[7];
+               item.replaceChild(textnode, item.childNodes[0]);
+            }
+           
+          };
+        //   sumTotal();
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#update").html("Ein Fehler ist aufgetreten");
+        });
 
-
+	}
+	setTimeout(ajaxFn,500);
 
 
 	});

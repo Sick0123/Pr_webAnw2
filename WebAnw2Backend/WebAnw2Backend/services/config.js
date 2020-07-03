@@ -49,8 +49,8 @@ serviceRouter.post("/config", function(request, response) {
 
     const configDao = new ConfigDao(request.app.locals.dbConnection);
     try {
-        console.log("config.js");
-        var result = configDao.create(request.body.f_id_auto, request.body.f_id_farbe, request.body.f_id_motor, request.body.f_id_felgen, request.body.f_id_update, request.body.f_id_fahrwerk);
+        console.log(request.body.preis);
+        var result = configDao.create(request.body.f_id_auto, request.body.f_id_farbe, request.body.f_id_motor, request.body.f_id_felgen, request.body.f_id_update, request.body.f_id_fahrwerk, request.body.preis);
        
         helper.log("Service events: Record inserted");
         response.status(200).json(helper.jsonMsgOK(result));
@@ -68,6 +68,24 @@ serviceRouter.get("/config/subSelc", function(request, response) {
     try {
         
         var result = configDao.subSelc();
+       
+        helper.log("Service events: Record inserted");
+        response.status(200).json(helper.jsonMsgOK(result));
+    } catch (ex) {
+        helper.logError("Service events: Error creating new record. Exception occured: " + ex.message);
+        response.status(400).json(helper.jsonMsgError(ex.message));
+    }   
+});
+
+
+serviceRouter.get("/config/getPreis/:id", function(request, response) {
+    helper.log("Service events: Client requested creation of new record");
+
+    var errorMsgs=[];
+    const configDao = new ConfigDao(request.app.locals.dbConnection);
+    try {
+        
+        var result = configDao.getPreis(request.params.id);
        
         helper.log("Service events: Record inserted");
         response.status(200).json(helper.jsonMsgOK(result));

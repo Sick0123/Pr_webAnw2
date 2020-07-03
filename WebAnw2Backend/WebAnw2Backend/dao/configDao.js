@@ -32,6 +32,17 @@ class configDao {
     }
 
 
+    getPreis(id){
+        var sql = "SELECT preis FROM config WHERE ID=?";
+        var statement = this._conn.prepare(sql);
+        var result = statement.get(id);
+
+        if (helper.isUndefined(result)) 
+            throw new Error("No Record found by id=" + id);
+
+        return helper.objectKeysToLower(result);
+    }
+
     loadById(id) {
         var sql = "SELECT * FROM config WHERE ID=?";
         var statement = this._conn.prepare(sql);
@@ -43,10 +54,10 @@ class configDao {
         return helper.objectKeysToLower(result);
     }
 
-    create(f_id_auto="",f_id_farbe="",f_id_motor="",f_id_felgen="",f_id_update="",f_id_fahrwerk="") {
-        var sql = "INSERT INTO Config (f_id_auto,f_id_farbe,f_id_motor,f_id_felgen,f_id_update,f_id_fahrwerk) VALUES (?,?,?,?,?,?)";
+    create(f_id_auto="",f_id_farbe="",f_id_motor="",f_id_felgen="",f_id_update="",f_id_fahrwerk="",preis="") {
+        var sql = "INSERT INTO Config (f_id_auto,f_id_farbe,f_id_motor,f_id_felgen,f_id_update,f_id_fahrwerk,preis) VALUES (?,?,?,?,?,?,?)";
         var statement = this._conn.prepare(sql);
-        var params = [f_id_auto,f_id_farbe,f_id_motor,f_id_felgen,f_id_update,f_id_fahrwerk];
+        var params = [f_id_auto,f_id_farbe,f_id_motor,f_id_felgen,f_id_update,f_id_fahrwerk,preis];
         var result = statement.run(params);
 
         if (result.changes != 1) 

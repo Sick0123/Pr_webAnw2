@@ -537,6 +537,7 @@
       var textnode = document.createTextNode("Endpreis: "+sum +"€");
       var item = document.getElementById("myList1").childNodes[7];
       item.replaceChild(textnode, item.childNodes[0]);
+      return sum 
     };
 
     function link(){
@@ -551,9 +552,9 @@
       var f_id_fahrwerk = document.getElementById('Fahrwerk').value;
       var f_id_felgen = document.getElementById('Felgen').value;
       var f_id_update = document.getElementById('update').value;
-
+      var sum_end = sumTotal();
       
-      var obj = { "f_id_auto": window.slideTo, "f_id_farbe": f_id_farbe, "f_id_motor": f_id_motor, "f_id_fahrwerk": f_id_fahrwerk, "f_id_felgen": f_id_felgen, "f_id_update": f_id_update};
+      var obj = { "f_id_auto": window.slideTo, "f_id_farbe": f_id_farbe, "f_id_motor": f_id_motor, "f_id_fahrwerk": f_id_fahrwerk, "f_id_felgen": f_id_felgen, "f_id_update": f_id_update,"preis":sum_end };
       console.log("ajax");
       $.ajax({ 
           url: "http://localhost:8000/api/config",
