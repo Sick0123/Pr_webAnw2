@@ -118,6 +118,10 @@ try {
     serviceRouter = require("./services/auto.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
+    serviceRouter = require("./services/config_besteller.js");
+    app.use(TOPLEVELPATH, serviceRouter);
+
+
     serviceRouter = require("./services/config.js");
     app.use(TOPLEVELPATH, serviceRouter);
 

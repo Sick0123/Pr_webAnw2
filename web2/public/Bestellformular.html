@@ -79,57 +79,51 @@
 			</div>
 	</div>
 	<div class="col-md-5 bestellformular_padding_top">
-		<form class="needs-validation" novalidate>
-			<div class="form-row">
-			</div>
-			<div class="form-row">
-			  <div class="form-group col-md-4 ">
-				<label id="Event_Form_Text">Name</label>
-				<span  style="color:red">*</span>
-				<input type="text" class="form-control" id="validationCustom02" required>
-			  </div>
-			  <div class="form-group col-md-4">
-				<label id="Event_Form_Text">Vorname</label>
-				<span  style="color:red">*</span>
-				<input type="text" class="form-control" id="validationCustom02" required>
-			  </div>
-			</div>
-			<div class="form-row">
-			  <div class="form-group col-md-8">
-				<label id="Event_Form_Text">E-Mail</label>
-				<span  style="color:red">*</span>
-				<input type="text" class="form-control" id="validationCustom02" required>
-			  </div>
-			</div>
-			<div class="form-row">
-			  <div class="form-group col-md-8">
-				<label for="validationDefault03" id="Event_Form_Text">Adresse</label>
-				<input type="text" class="form-control">
-			  </div>
-			</div>
-			<div class="form-row">
-				<div class="form-group col-md-8">
-				  <label for="validationDefault03" id="Event_Form_Text">Adresszusatz</label>
-				  <input type="text" class="form-control">
-				</div>
-			  </div>
-			<div class="form-row">
-			  <div class="form-group col-md-3">
-				<label id="Event_Form_Text">PLZ</label>
-				<input type="text" class="form-control">
-			  </div>
-			  <div class="form-group col-md-3">
-				<label id="Event_Form_Text">Ort</label>
-				<input type="text" class="form-control">
-				</select>
-			  </div>
-			  <div class="form-group"></div>
-			  <div class="form-group bestellformular_padding_left">
-				<!-- <button type="submit" class="btn btn-success" id="Event_button"href="Bestellbestaetigung.html" >Absenden</button> -->
-				<a class='btn btn-success'type="submit" href='Bestellbestaetigung.html' id="Event_button" role='button'>Absenden</a>
-			  </div>
-			</div>
-		  </form>
+		<form method="POST" enctype="multipart/form-data" id="myform" class="needs-validation" novalidate method="post"
+          id="BookPackageForm"></form>>
+       
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label id="Event_Form_Text">Name</label>
+            <span style="color:red">*</span>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label id="Event_Form_Text">Vorname</label>
+            <span style="color:red">*</span>
+            <input type="text" class="form-control" id="vname" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label id="Event_Form_Text">E-Mail</label>
+            <span style="color:red">*</span>
+            <input type="text" class="form-control" id="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="validationDefault03" id="Event_Form_Text">Adresse</label>
+            <input type="text" id="adr" class="form-control">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label id="Event_Form_Text">PLZ</label>
+            <input type="text" id="plz" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label id="Event_Form_Text">Ort</label>
+            <input type="text" id="Ort" class="form-control">
+            </select>
+          </div>
+          
+          <div class="form-group col-md-2">
+            <a class="btn btn-success" type="submit"  id="Event_button"
+              role="button">Absenden</a>
+          </div>
+        </div>
+        </form>
 		  
   	
 	</div>
@@ -394,6 +388,48 @@
 
 	}
 	setTimeout(ajaxFn,500);
+	function link(){
+      window.open('Bestellbestaetigung.html','_self',false);
+    }
+
+    $("#Event_button").click(function () {
+
+     
+      
+      var name = document.getElementById('name').value;
+      var vname = document.getElementById('vname').value;
+      var email = document.getElementById('email').value;
+      var adr = document.getElementById('adr').value;
+      var plz = document.getElementById('plz').value;
+      var ort = document.getElementById('Ort').value;
+    //   console.log(f_id,name,vname,email,adr,plz,ort);
+      
+      var obj = { "f_id_config": ret.id, "name": name, "vname": vname, "email": email, "adr": adr, "plz": parseInt(plz), "ort": ort };
+
+      if(name.length>=3 &&vname.length>=3 &&email.length >=6 && email.includes("@",2) && email.includes(".") ){
+        console.log("Erfolgreich")
+        $.ajax({
+          url: "http://localhost:8000/api/config_besteller",
+          method: "post",
+          contentType: "application/json",
+          data: JSON.stringify(obj)
+        }).done(function (response) {
+          console.log(response);
+          $("#output").html(JSON.stringify(response));
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+          $("#output").html("Ein Fehler ist aufgetreten");
+        });
+        setTimeout(link, 500);
+        
+      }else{
+       alert("Eingabe Falsch. Name, Vorname oder Mail sind zu kurz oder nicht vorhanden.")
+      }
+      
+
+
+      // window.alert("Break");
+    });
 
 
 	});
