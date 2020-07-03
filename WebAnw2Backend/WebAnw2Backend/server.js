@@ -118,8 +118,8 @@ try {
     serviceRouter = require("./services/auto.js");
     app.use(TOPLEVELPATH, serviceRouter);
 
-    // serviceRouter = require("./services/konfig.js");
-    // app.use(TOPLEVELPATH, serviceRouter);
+    serviceRouter = require("./services/config.js");
+    app.use(TOPLEVELPATH, serviceRouter);
 
     serviceRouter = require("./services/produktbild.js");
     app.use(TOPLEVELPATH, serviceRouter);

@@ -147,7 +147,7 @@
       <div class="col-md-3 ">
        
         <div class="config_columns">
-          <ul id="myList1" class="config_price"><li>name</li><li>Basispreis</li><li>Titan Silber: Preis 500€</li><li>Motor: Standard  Preis: 0€</li><li>Fahrwerk: Standard  Preis: 0€</li><li>Sportfelgen: Standard  Preis: 0€</li><li>Update: Standard  Preis: 0€</li><li class="grey"><p id="endpreis" >Endpreis:  73083,48€</p><a href="" class=" btn btn-primary ">In Warenkorb</a><a href="./Bestellformular.html" class=" btn btn-success ">Bestellen</a></li></ul>
+          <ul id="myList1" class="config_price"><li>name</li><li>Basispreis</li><li>Titan Silber: Preis 500€</li><li>Motor: Standard  Preis: 0€</li><li>Fahrwerk: Standard  Preis: 0€</li><li>Sportfelgen: Standard  Preis: 0€</li><li>Update: Standard  Preis: 0€</li><li class="grey"><p id="endpreis" >Endpreis:  73083,48€</p><a href="" class=" btn btn-primary ">In Warenkorb</a><a id="button_id" class=" btn btn-success ">Bestellen</a></li></ul>
         </div>
       </div>
 
@@ -197,6 +197,7 @@
   </footer>
   <script>
     var totalcost = {};
+    var slideTo =0;
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
     });
@@ -240,7 +241,8 @@
       $('#text_slideshow').html($('.active > .carousel-caption').html());
       $('.carousel').on('slid.bs.carousel', function (e) {
         var slideFrom = $(this).find('.active').index();
-        var slideTo = $(e.relatedTarget).index();
+        window.slideTo = $(e.relatedTarget).index();
+        
         
         $.ajax({
           url: "http://localhost:8000/api/auto/gib/" + slideFrom,
@@ -537,10 +539,50 @@
       item.replaceChild(textnode, item.childNodes[0]);
     };
 
+    function link(){
+      window.open('Bestellformular.html','_self',false);
+    }
+
+    $("#button_id").on('click', function(){
+      
+      window.slideTo
+      var f_id_farbe = document.getElementById('Farbe').value;
+      var f_id_motor = document.getElementById('Motor').value;
+      var f_id_fahrwerk = document.getElementById('Fahrwerk').value;
+      var f_id_felgen = document.getElementById('Felgen').value;
+      var f_id_update = document.getElementById('update').value;
+
+      
+      var obj = { "f_id_auto": window.slideTo, "f_id_farbe": f_id_farbe, "f_id_motor": f_id_motor, "f_id_fahrwerk": f_id_fahrwerk, "f_id_felgen": f_id_felgen, "f_id_update": f_id_update};
+      console.log("ajax");
+      $.ajax({ 
+          url: "http://localhost:8000/api/config",
+          method: "post",
+          contentType: "application/json",
+          data: JSON.stringify(obj)
+        }).done(function (response) {
+          console.log("id respons"+ response.id);
+          var expires = "";
+          var name = "warenkorb";
+          var separator = "/";
+          var value = [response.id].join(separator);
+          var days = 2;
+          if (days) {
+              var date = new Date();
+              date.setTime(date.getTime() + (days*24*60*60*1000));
+              expires = "; expires=" + date.toUTCString();
+          }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 
 
+        }).fail(function (jqXHR, statusText, error) {
+          console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
+        });
+        
 
 
+        setTimeout(link, 500);
+    });
 
   </script>
 </body>
