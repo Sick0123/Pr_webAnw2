@@ -37,10 +37,7 @@
           <div class="container" id="shopping_cart">
             <img id="shopping_cart" src="./img/shopping_cart_white.png" alt="Warenkorb" data-html="true"
             data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>'
-            data-content="<div> <p>Audi RS3 Sportback<br><br> 
-              Farbe: Tango Rot<br> Motor: 2.5 TFSI<br> Fahrwerk: KW<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
-              <B>Endpreis: 73083,48€ <br><br></B>   
-              <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellen</a> </div>">
+            data-content="">
           </div>
         </li>
       </ul>
@@ -55,13 +52,13 @@
           <div id="carouselExampleControls" class="carousel "data-interval="5000"  data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <a href="./Konfigurator.html" title=""><img src="./img/slideshow_911.jpg" class="d-block w-100" alt="..."></a>
+                <a href="./Konfigurator.html" title="" onclick="setCockie(1)"><img src="./img/slideshow_911.jpg" class="d-block w-100" alt="..."></a>
               </div>
               <div class="carousel-item">
-                <a href="./Konfigurator.html" title=""><img src="./img/slideshow_corvette.jpg" class="d-block w-100" alt="..."></a>
+                <a href="./Konfigurator.html" title=""onclick="setCockie(2)"><img src="./img/slideshow_corvette.jpg" class="d-block w-100" alt="..."></a>
               </div>
               <div class="carousel-item">
-                <a href="./Konfigurator.html" title=""><img src="./img/slideshow_skyline.jpg" class="d-block w-100" alt="..."></a>
+                <a href="./Konfigurator.html" title=""onclick="setCockie(3)"><img src="./img/slideshow_skyline.jpg" class="d-block w-100" alt="..."></a>
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -238,6 +235,45 @@
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
     });
+    function setCockie(id){
+      var date = new Date();
+        date.setTime(date.getTime() + (1*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      document.cookie =  "carID" + "=" + id + expires;
+    }
+
+    function getCookieWare() {
+          console.log("getCookie ");
+        var nameEQ = "warenkorb" + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+             var c = ca[i];
+             while (c.charAt(0)==' ') c = c.substring(1,c.length);
+             if (c.indexOf(nameEQ) == 0) return slideTo = c.substring(nameEQ.length,c.length);
+        }
+        
+        return null;
+    }
+
+    var x = getCookieWare();
+    
+    switch (x) {
+  case "1":
+  var c = "<div><h5><p>Um eine Bestellung aufzugeben, klicken Sie den Button.</p> <a class='btn btn-primary' href='Konfigurator.html' role='button'>Bestellung beginnen </a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "2":
+  var c = "<div><h5><p>Um eine Bestellung fort zufahren, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellung fortsetzen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "3":
+  var c = "<div><h5><p>Um eine Bestellung abzuschließen, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellbestaetigung.html' role='button'>Bestellung abschließen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+ 
+  break;
+    }
+
+
   </script>
 </body>
 

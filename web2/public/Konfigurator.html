@@ -37,17 +37,14 @@
         <li class="nav-item">
           <div class="container" id="shopping_cart">
             <img id="shopping_cart" src="./img/shopping_cart_white.png" alt="Warenkorb" data-html="true"
-              data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>' data-content="<div> <p>Audi RS3 Sportback<br><br> 
-              Farbe: Tango Rot<br> Motor: 2.5 TFSI<br> Fahrwerk: KW<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
-              <B>Endpreis: 73083,48€ <br><br></B>   
-              <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellen</a> </div>">
+              data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>' data-content="">
           </div>
         </li>
       </ul>
     </div>
   </nav>
   <div class="container config_margin_footer config ">
-    <div class="row config_margin_carousel">
+    <div class="row config_margin_carousel" id="imageCaptions">
       <div class="col-md-12 ">
         <div id="carouselExampleControls" class="carousel " data-interval="false" data-ride="carousel">
           <div class="carousel-inner">
@@ -147,7 +144,7 @@
       <div class="col-md-3 ">
        
         <div class="config_columns">
-          <ul id="myList1" class="config_price"><li>name</li><li>Basispreis</li><li>Titan Silber: Preis 500€</li><li>Motor: Standard  Preis: 0€</li><li>Fahrwerk: Standard  Preis: 0€</li><li>Sportfelgen: Standard  Preis: 0€</li><li>Update: Standard  Preis: 0€</li><li class="grey"><p id="endpreis" >Endpreis:  73083,48€</p><a href="" class=" btn btn-primary ">In Warenkorb</a><a id="button_id" class=" btn btn-success ">Bestellen</a></li></ul>
+          <ul id="myList1" class="config_price"><li>name</li><li>Basispreis</li><li>Titan Silber: Preis 500€</li><li>Motor: Standard  Preis: 0€</li><li>Fahrwerk: Standard  Preis: 0€</li><li>Sportfelgen: Standard  Preis: 0€</li><li>Update: Standard  Preis: 0€</li><li class="grey"><p id="endpreis" >Endpreis:  73083,48€</p><a id="button_id" class=" btn btn-success ">Bestellen</a></li></ul>
         </div>
       </div>
 
@@ -198,13 +195,79 @@
   <script>
     var totalcost = {};
     var slideTo =0;
-    $(document).ready(function () {
-      $('[data-toggle="popover"]').popover();
-    });
+    function getCookie() {
+          console.log("getCookie ");
+        var nameEQ = "carID" + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+             var c = ca[i];
+             while (c.charAt(0)==' ') c = c.substring(1,c.length);
+             if (c.indexOf(nameEQ) == 0) return slideTo = c.substring(nameEQ.length,c.length);
+        }
+        
+        return null;
+    }
+    function setCockie(id){
+      var date = new Date();
+        date.setTime(date.getTime() + (1*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      document.cookie =  "carID" + "=" + id + expires;
+
+    }
+    function setCockieWaren(){
+      var date = new Date();
+        date.setTime(date.getTime() + (1*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      document.cookie =  "warenkorb" + "=" + 2 + expires;
+
+    }
+
+    function getCookieWare() {
+          console.log("getCookie ");
+        var nameEQ = "warenkorb" + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+             var c = ca[i];
+             while (c.charAt(0)==' ') c = c.substring(1,c.length);
+             if (c.indexOf(nameEQ) == 0) return slideTo = c.substring(nameEQ.length,c.length);
+        }
+        
+        return null;
+    }
+
+    var x = getCookieWare();
+    
+    switch (x) {
+  case "1":
+  var c = "<div><h5><p>Um eine Bestellung aufzugeben, klicken Sie den Button.</p> <a class='btn btn-primary' href='Konfigurator.html' role='button'>Bestellung beginnen </a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "2":
+  var c = "<div><h5><p>Um eine Bestellung fort zufahren, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellung fortsetzen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "3":
+  var c = "<div><h5><p>Um eine Bestellung abzuschließen, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellbestaetigung.html' role='button'>Bestellung abschließen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+ 
+  break;
+    }
+
+
 
     $(document).ready(function () {
+      $('[data-toggle="popover"]').popover();
+
+      var x = getCookie();
+      $('.carousel').carousel(x-1);
+      
+
+    });
+    
+    $(document).ready(function () {
+      
       $.ajax({
-        url: "http://localhost:8000/api/auto/gib/0",
+        url: "http://localhost:8000/api/auto/gib/"+(getCookie()-1),
         method: "get",
         dataType: "json"
       }).done(function (response) {
@@ -242,7 +305,7 @@
       $('.carousel').on('slid.bs.carousel', function (e) {
         var slideFrom = $(this).find('.active').index();
         window.slideTo = $(e.relatedTarget).index();
-        
+        setCockie(slideFrom+1);
         
         $.ajax({
           url: "http://localhost:8000/api/auto/gib/" + slideFrom,
@@ -541,12 +604,13 @@
     };
 
     function link(){
+      setCockieWaren();
       window.open('Bestellformular.html','_self',false);
     }
 
     $("#button_id").on('click', function(){
       
-      window.slideTo
+      window.slideTo = slideTo-1;
       var f_id_farbe = document.getElementById('Farbe').value;
       var f_id_motor = document.getElementById('Motor').value;
       var f_id_fahrwerk = document.getElementById('Fahrwerk').value;
@@ -562,19 +626,8 @@
           contentType: "application/json",
           data: JSON.stringify(obj)
         }).done(function (response) {
-          console.log("id respons"+ response.id);
-          var expires = "";
-          var name = "warenkorb";
-          var separator = "/";
-          var value = [response.id].join(separator);
-          var days = 2;
-          if (days) {
-              var date = new Date();
-              date.setTime(date.getTime() + (days*24*60*60*1000));
-              expires = "; expires=" + date.toUTCString();
-          }
-        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-
+          
+          
 
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
@@ -583,6 +636,9 @@
 
 
         setTimeout(link, 500);
+
+    
+
     });
 
   </script>

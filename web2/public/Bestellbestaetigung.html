@@ -81,6 +81,10 @@
                     Abholung<br><br><br>
                   </h5>
               </div>
+              <div class="col-md-4">
+                <a id="Margin_Top_1111" class='btn btn-primary' onclick="resetCockie()" href='Konfigurator.html' role='button'>Neues Auto konfigurieren</a>
+              </div>
+             
             </div>
           </div>
 
@@ -97,7 +101,9 @@
                           <ul id="myList1" class="config_price"><li>name</li><li>Basispreis</li><li>Titan Silber: Preis 500€</li><li>Motor: Standard  Preis: 0€</li><li>Fahrwerk: Standard  Preis: 0€</li><li>Sportfelgen: Standard  Preis: 0€</li><li>Update: Standard  Preis: 0€</li><li class="grey"><p id="endpreis" >Endpreis:  73083,48€</p></li></ul>
                         </h5>
                 </div>
-                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                  
+                </div>
             </div>
 
 
@@ -143,8 +149,52 @@
     </footer>
   <script>
     var ret ={};
+
+    function resetCockie(){
+        var date = new Date();
+        date.setTime(date.getTime() + (1*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      document.cookie =  "warenkorb" + "=" + 1 + expires;
+      document.cookie =  "carID" + "=" + 1 + expires;
+
+    }
+    
+
+
+
+    function getCookieWare() {
+          console.log("getCookie ");
+        var nameEQ = "warenkorb" + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+             var c = ca[i];
+             while (c.charAt(0)==' ') c = c.substring(1,c.length);
+             if (c.indexOf(nameEQ) == 0) return slideTo = c.substring(nameEQ.length,c.length);
+        }
+        
+        return null;
+    }
+
+    var x = getCookieWare();
+    
+    switch (x) {
+  case "1":
+  var c = "<div><h5><p>Um eine Bestellung aufzugeben, klicken Sie den Button.</p> <a class='btn btn-primary' href='Konfigurator.html' role='button'>Bestellung beginnen </a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "2":
+  var c = "<div><h5><p>Um eine Bestellung fort zufahren, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellung fortsetzen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "3":
+  var c = "<div><h5><p>Um eine Bestellung abzuschließen, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellbestaetigung.html' role='button'>Bestellung abschließen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+ 
+  break;
+    }
     $(document).ready(function () {
       $('[data-toggle="popover"]').popover();
+
       $.ajax({
         url: "http://localhost:8000/api/config/subSelc",
         method: "get",

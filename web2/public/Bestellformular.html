@@ -38,10 +38,7 @@
 			<div class="container" id="shopping_cart">
 				<img id="shopping_cart" src="./img/shopping_cart_white.png" alt="Warenkorb" data-html="true"
 				data-toggle="popover" data-placement="bottom" title='<h1>Warenkorb</h1>'
-				data-content="<div> <p>Audi RS3 Sportback<br><br> 
-				  Farbe: Tango Rot<br> Motor: 2.5 TFSI<br> Fahrwerk: KW<br> Sportfelgen: BBS<br> Update: Updatestufe 1 <br><br>  
-				  <B>Endpreis: 73083,48€ <br><br></B>   
-				  <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellen</a> </div>">
+				data-content="">
 			  </div>
         </li>
       </ul>
@@ -55,7 +52,9 @@
 			<div class="col-md-2">
 			</div>
 			<div class="col-md-8">
-				<img src="./img/slideshow_skyline.jpg" class="img-fluid" alt="Responsive image">
+        <img src="./img/slideshow_skyline.jpg" class="img-fluid" id="skyline" alt="Responsive image">
+        <img src="./img/slideshow_911.jpg" class="img-fluid" id="porsche" alt="Responsive image">
+        <img src="./img/slideshow_corvette.jpg" class="img-fluid" id="corvette" alt="Responsive image">
 			</div>
 		
 		</div>
@@ -104,21 +103,27 @@
         <div class="form-row">
           <div class="form-group col-md-8">
             <label for="validationDefault03" id="Event_Form_Text">Adresse</label>
+            <span style="color:red">*</span>
             <input type="text" id="adr" class="form-control">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-2">
+            
             <label id="Event_Form_Text">PLZ</label>
+            <span style="color:red">*</span>
             <input type="text" id="plz" class="form-control">
           </div>
           <div class="form-group col-md-4">
+            
             <label id="Event_Form_Text">Ort</label>
+            <span style="color:red">*</span>
             <input type="text" id="Ort" class="form-control">
             </select>
           </div>
           
           <div class="form-group col-md-2">
+            
             <a class="btn btn-success" type="submit"  id="Event_button"
               role="button">Absenden</a>
           </div>
@@ -170,8 +175,86 @@
 	</div>
   </footer>
   <script>
+    function getCookie() {
+          console.log("getCookie ");
+        var nameEQ = "carID" + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+             var c = ca[i];
+             while (c.charAt(0)==' ') c = c.substring(1,c.length);
+             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        
+        return null;
+    }
+    function setCockieWaren(){
+      var date = new Date();
+        date.setTime(date.getTime() + (1*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      document.cookie =  "warenkorb" + "=" + 3 + expires;
+
+    }
+
+    function getCookieWare() {
+          console.log("getCookie ");
+        var nameEQ = "warenkorb" + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+             var c = ca[i];
+             while (c.charAt(0)==' ') c = c.substring(1,c.length);
+             if (c.indexOf(nameEQ) == 0) return slideTo = c.substring(nameEQ.length,c.length);
+        }
+        
+        return null;
+    }
+
+    var x = getCookieWare();
+    
+    switch (x) {
+  case "1":
+  var c = "<div><h5><p>Um eine Bestellung aufzugeben, klicken Sie den Button.</p> <a class='btn btn-primary' href='Konfigurator.html' role='button'>Bestellung beginnen </a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "2":
+  var c = "<div><h5><p>Um eine Bestellung fort zufahren, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellformular.html' role='button'>Bestellung fortsetzen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+  break;
+  case "3":
+  var c = "<div><h5><p>Um eine Bestellung abzuschließen, klicken Sie den Button.</p> <a class='btn btn-primary' href='Bestellbestaetigung.html' role='button'>Bestellung abschließen</a> </div>"
+  $('[data-toggle="popover"]').attr('data-content', c);
+ 
+  break;
+    }
+
+    function setImg(id){
+      console.log("setImg "+id);
+      switch (id) {
+  case "1":
+  document.getElementById("skyline").style.display = "none";
+  document.getElementById("porsche").style.display = "block";
+  document.getElementById("corvette").style.display = "none";
+  break;
+  case "2":
+    console.log("case 2");
+  document.getElementById("skyline").style.display = "none";
+  document.getElementById("porsche").style.display = "none";
+  document.getElementById("corvette").style.display = "block";
+  break;
+  case "3":
+  console.log("case 3");
+  document.getElementById("skyline").style.display = "block";
+  document.getElementById("porsche").style.display = "none";
+  document.getElementById("corvette").style.display = "none";
+  break;
+    }
+  }
+
+
+
+  
 	var ret ={};
     $(document).ready(function () {
+      setImg(getCookie());
 	  $('[data-toggle="popover"]').popover();
 	  
 	  $.ajax({
@@ -389,6 +472,7 @@
 	}
 	setTimeout(ajaxFn,500);
 	function link(){
+      setCockieWaren();
       window.open('Bestellbestaetigung.html','_self',false);
     }
 
