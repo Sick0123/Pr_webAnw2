@@ -198,7 +198,7 @@
       var plz = document.getElementById('plz').value;
       var ort = document.getElementById('Ort').value;
       console.log(event_name,name,vname,email,adr,plz,ort);
-      // var obj = { "event": event, "name": name, "vname": vname, "email": email, "adr": adr, "plz": plz, "ort": ort };
+     
       var obj = { "f_event_id": event_name, "name": name, "vname": vname, "email": email, "adr": adr, "plz": parseInt(plz), "ort": ort };
 
       if(name.length>=3 &&vname.length>=3 &&email.length >=6 && email.includes("@",2) && email.includes(".") ){
@@ -223,7 +223,7 @@
       
 
 
-      // window.alert("Break");
+     
     });
   });
 

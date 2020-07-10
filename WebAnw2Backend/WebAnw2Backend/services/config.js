@@ -22,30 +22,30 @@ serviceRouter.post("/config", function(request, response) {
     helper.log("Service events: Client requested creation of new record");
 
     var errorMsgs=[];
-    // if (helper.isUndefined(request.body.f_event_id)) 
-    //     errorMsgs.push("f_event_id fehlt");
-    // if (helper.isUndefined(request.body.adr)) {
-    //     errorMsgs.push("adr fehlt");
-    // } 
-    // if (helper.isUndefined(request.body.email)) 
-    //     errorMsgs.push("email fehlt");
-    // if (helper.isUndefined(request.body.name)) {
-    //     errorMsgs.push("name fehlt");
-    // }
-    // if (helper.isUndefined(request.body.ort)) 
-    //     errorMsgs.push("ort fehlt");
-    // if (helper.isUndefined(request.body.plz)) {
-    //     errorMsgs.push("plz fehlt");
-    // }
-    // if (helper.isUndefined(request.body.vname)) {
-    //     errorMsgs.push("vname fehlt");
-    // }
+    if (helper.isUndefined(request.body.f_id_auto)) 
+        errorMsgs.push("f_id_auto fehlt");
+    if (helper.isUndefined(request.body.f_id_farbe)) {
+        errorMsgs.push("f_id_farbe fehlt");
+    } 
+    if (helper.isUndefined(request.body.f_id_motor)) 
+        errorMsgs.push("f_id_motor fehlt");
+    if (helper.isUndefined(request.body.f_id_felgen)) {
+        errorMsgs.push("f_id_felgen fehlt");
+    }
+    if (helper.isUndefined(request.body.f_id_update)) 
+        errorMsgs.push("f_id_update fehlt");
+    if (helper.isUndefined(request.body.f_id_fahrwerk)) {
+        errorMsgs.push("f_id_fahrwerk fehlt");
+    }
+    if (helper.isUndefined(request.body.preis)) {
+        errorMsgs.push("preis fehlt");
+    }
     
-    // if (errorMsgs.length > 0) {
-    //     helper.log("Service events: Creation not possible, data missing");
-    //     response.status(400).json(helper.jsonMsgError("Hinzufügen nicht möglich. Fehlende Daten: " + helper.concatArray(errorMsgs)));
-    //     return;
-    // }
+    if (errorMsgs.length > 0) {
+        helper.log("Service events: Creation not possible, data missing");
+        response.status(400).json(helper.jsonMsgError("Hinzufügen nicht möglich. Fehlende Daten: " + helper.concatArray(errorMsgs)));
+        return;
+    }
 
     const configDao = new ConfigDao(request.app.locals.dbConnection);
     try {

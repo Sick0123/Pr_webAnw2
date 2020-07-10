@@ -369,10 +369,6 @@
           $("#Motor").append($('<option></option>').val(value.id_motor).text(value.name));
           console.log(document.getElementById("Motor").value);
 
-          // $("#Motor").append($('<div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>'));
-          // console.log(document.getElementById("Motor").value);
-
-
         });
       }).fail(function (jqXHR, statusText, error) {
         console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
@@ -391,7 +387,6 @@
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
               var price = response.daten[obj].toString();
               price = response.daten.name+ "\n Preis: " + price + "€";
@@ -442,7 +437,6 @@
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.hersteller);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
               var price = response.daten[obj].toString();
               price = response.daten.hersteller+ "\n Preis: " + price + "€";
@@ -471,15 +465,13 @@
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
               var item = document.getElementById("myList1").childNodes[3];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
               var price = response.daten[obj].toString();
               price = response.daten.name+ "\n Preis: " + price + "€";
               
               var textnode = document.createTextNode(price);
               var item = document.getElementById("myList1").childNodes[2];
-               item.replaceChild(textnode, item.childNodes[0]);
-              
+               item.replaceChild(textnode, item.childNodes[0]); 
             }
           };
           sumTotal();
@@ -495,13 +487,11 @@
           url: "http://localhost:8000/api/sportfelgen/gib/" + f_id,
           method: "get",
           dataType: "json"
-        }).done(function (response) {
-          
+        }).done(function (response) { 
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.hersteller);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
               totalcost["felgen"] = response.daten[obj];
               var price = response.daten[obj].toString();
@@ -510,10 +500,7 @@
               var textnode = document.createTextNode(price);
               var item = document.getElementById("myList1").childNodes[5];
                item.replaceChild(textnode, item.childNodes[0]);
-
-             
             }
-           
           };
         sumTotal();
         }).fail(function (jqXHR, statusText, error) {
@@ -533,7 +520,6 @@
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
               var price = response.daten[obj].toString();
               price = response.daten.name+ "\n Preis: " + price + "€";
@@ -626,19 +612,10 @@
           contentType: "application/json",
           data: JSON.stringify(obj)
         }).done(function (response) {
-          
-          
-
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
         });
-        
-
-
         setTimeout(link, 500);
-
-    
-
     });
 
   </script>

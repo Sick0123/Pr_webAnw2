@@ -103,7 +103,7 @@
         <div class="form-row">
           <div class="form-group col-md-8">
             <label for="validationDefault03" id="Event_Form_Text">Adresse</label>
-            <span style="color:red">*</span>
+            
             <input type="text" id="adr" class="form-control">
           </div>
         </div>
@@ -111,13 +111,13 @@
           <div class="form-group col-md-2">
             
             <label id="Event_Form_Text">PLZ</label>
-            <span style="color:red">*</span>
+           
             <input type="text" id="plz" class="form-control">
           </div>
           <div class="form-group col-md-4">
             
             <label id="Event_Form_Text">Ort</label>
-            <span style="color:red">*</span>
+           
             <input type="text" id="Ort" class="form-control">
             </select>
           </div>
@@ -280,7 +280,7 @@
           dataType: "json"
         }).done(function (response) {
 			
-        //   totalcost["motor"] = response.daten.preis;
+        
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
@@ -296,7 +296,7 @@
             }
            
           };
-        //   sumTotal();
+
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
           $("#Farbe").html("Ein Fehler ist aufgetreten");
@@ -307,7 +307,7 @@
           method: "get",
           dataType: "json"
         }).done(function (response) {
-        //   totalcost["basispreis"] = response.daten.preis;
+       
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
@@ -323,7 +323,7 @@
             }
            
           };
-        //   sumTotal();
+        
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
           $("#Farbe").html("Ein Fehler ist aufgetreten");
@@ -334,12 +334,12 @@
           method: "get",
           dataType: "json"
         }).done(function (response) {
-        //   tottotalcost["fahrwerk"] = response.daten.preis;
+       
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.hersteller);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
+             
             } else {
               var price = response.daten[obj].toString();
               price = response.daten.hersteller+ "\n Preis: " + price + "€";
@@ -350,7 +350,7 @@
             }
            
           };
-        //   sumTotal();
+        
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
           $("#Farbe").html("Ein Fehler ist aufgetreten");
@@ -361,12 +361,12 @@
           method: "get",
           dataType: "json"
         }).done(function (response) {
-        //   totalcost["farbe"] = response.daten.preis;
+      
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
               var item = document.getElementById("myList1").childNodes[3];
-              //  item.replaceChild(textnode, item.childNodes[0]);
+              
             } else {
               var price = response.daten[obj].toString();
               price = response.daten.name+ "\n Preis: " + price + "€";
@@ -377,7 +377,7 @@
               
             }
           };
-        //   sumTotal();
+       
 
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
@@ -394,9 +394,7 @@
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.hersteller);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
-            //   totalcost["felgen"] = response.daten[obj];
               var price = response.daten[obj].toString();
               price = response.daten.hersteller+ "\n Preis: " + price + "€";
               
@@ -408,7 +406,6 @@
             }
            
           };
-        // sumTotal();
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
           $("#Felgen").html("Ein Fehler ist aufgetreten");
@@ -419,12 +416,11 @@
           method: "get",
           dataType: "json"
         }).done(function (response) {
-        //   totalcost["updage"] = response.daten.preis;
+
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
               var price = response.daten[obj].toString();
               price = response.daten.name+ "\n Preis: " + price + "€";
@@ -435,7 +431,6 @@
             }
            
           };
-        //   sumTotal();
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
           $("#update").html("Ein Fehler ist aufgetreten");
@@ -447,23 +442,18 @@
           method: "get",
           dataType: "json"
         }).done(function (response) {
-        //   totalcost["updage"] = response.daten.preis;
           for (var obj in response.daten) {
             if (obj != "preis") {
               var textnode = document.createTextNode(response.daten.name);
               var item = document.getElementById("myList1").childNodes[0];
-              //  item.replaceChild(textnode, item.childNodes[0]);
             } else {
               var price = response.daten[obj].toString();
               price =  "Endpreis: " + price + "€";
-              
               var textnode = document.createTextNode(price);
               var item = document.getElementById("myList1").childNodes[7];
                item.replaceChild(textnode, item.childNodes[0]);
             }
-           
           };
-        //   sumTotal();
         }).fail(function (jqXHR, statusText, error) {
           console.log("Response Code: " + jqXHR.status + " - Fehlermeldung: " + jqXHR.responseText);
           $("#update").html("Ein Fehler ist aufgetreten");
@@ -486,7 +476,6 @@
       var adr = document.getElementById('adr').value;
       var plz = document.getElementById('plz').value;
       var ort = document.getElementById('Ort').value;
-    //   console.log(f_id,name,vname,email,adr,plz,ort);
       
       var obj = { "f_id_config": ret.id, "name": name, "vname": vname, "email": email, "adr": adr, "plz": parseInt(plz), "ort": ort };
 
@@ -509,10 +498,6 @@
       }else{
        alert("Eingabe Falsch. Name, Vorname oder Mail sind zu kurz oder nicht vorhanden.")
       }
-      
-
-
-      // window.alert("Break");
     });
 
 

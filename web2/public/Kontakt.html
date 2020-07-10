@@ -147,7 +147,6 @@
       var kat = document.getElementById('dropDown').value;
       var text2 = document.getElementById('textarea').value;
       console.log(kat,text2);
-      // var obj = { "event": event, "name": name, "vname": vname, "email": email, "adr": adr, "plz": plz, "ort": ort };
       var obj = { "f_id_kategorie": kat, "text": text2};
 
       if(text2.length>=20 &&text2.length <=2500){
@@ -165,14 +164,9 @@
           $("#output").html("Ein Fehler ist aufgetreten");
         });
         setTimeout(link, 500);
-        
       }else{
       alert("Eingabe Falsch. zu lang oder zu kurz (min. 20 max. 2500)");
       }
-
-
-
-      // window.alert("Break");
       });
 
     }); 
