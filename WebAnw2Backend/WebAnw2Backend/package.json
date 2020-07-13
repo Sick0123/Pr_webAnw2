@@ -4,10 +4,7 @@
   "description": "Backend for WebAnwendungen2 WS1920",
   "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "sh node_modules/.bin/jest",
-    "test:watch": "jest --watch"
-
+    "test": "jest"
   },
   "author": "Robert Kuti",
   "license": "ISC",
@@ -19,5 +16,8 @@
   },
   "devDependencies": {
     "jest": "^26.0.1"
+  },
+  "jest": {
+    "testEnvironment" : "node"
   }
 }
