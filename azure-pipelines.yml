@@ -17,6 +17,6 @@ steps:
 
 - script: |
     cd WebAnw2Backend/WebAnw2Backend
-    npm install
+    npm run start
     npm test
   displayName: 'npm install and build'
