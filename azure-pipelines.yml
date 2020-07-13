@@ -15,10 +15,8 @@ steps:
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
-- script: 
-    pwd
-    workingDirectory: WebAnw2Backend/WebAnw2Backend
-    pwd
+- script:
+    cd WebAnw2Backend/WebAnw2Backend
     npm install
     npm test
   displayName: 'npm install and build'
