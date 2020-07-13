@@ -9,7 +9,17 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
+jobs:
+  build:
+    env:
+      working-directory: ./WebAnw2Backend/WebAnw2Backend/
+          
+       #runs-on: 'ubuntu-latest'
+       
+       strategy:
+         matrix: 
+           node-version: [12.x]
+       steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '12.x'
@@ -20,3 +30,6 @@ steps:
     npm install
     npm test
   displayName: 'npm install and build'
+
+       
+
