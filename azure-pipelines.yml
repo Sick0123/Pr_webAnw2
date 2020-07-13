@@ -16,7 +16,9 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    pwd
     cd WebAnw2Backend/WebAnw2Backend
+    pwd
     npm install
     npm test
   displayName: 'npm install and build'
